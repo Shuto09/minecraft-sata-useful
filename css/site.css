@@ -1,0 +1,399 @@
+/* ============================================================
+   SATA SERIES 紹介サイト 共通スタイル
+   デザイン基準: さたの美意識 v2.0（§3 パレット / §11 レイアウト規律）
+   - 全色・全フォントは :root トークン経由（§11-4）
+   - アニメは transform / opacity のみ（§11-5）
+   ============================================================ */
+
+:root {
+  /* §3-2 確定パレット（ライト基調・春の朝） */
+  --white: #FFFFFF;
+  --mist: #F2F8FD;
+  --pale-aqua: #DCEEFA;
+  --sky-blue: #9FD6F2;
+  --azure: #3A93D8;
+  --aqua-glow: #35E0C4;
+  --peach: #FFB27A;
+  --ink: #1B2A3A;
+  --ink-soft: #46586C;
+  /* ダーク面（フッター等） */
+  --navy: #0C1D33;
+  --navy-surface: #16304F;
+  --off-white: #EAF2F8;
+  --bright-azure: #4EA8DE;
+
+  /* タイポ（§4: 明朝的見出し × 読みやすいゴシック本文） */
+  --font-head: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "BIZ UDMincho", serif;
+  --font-body: "Yu Gothic UI", "Yu Gothic", "YuGothic", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+
+  /* モーション（§11-5: 名前付きトークン・ease-out系） */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* z-index 段階（§11-8: 9999禁止） */
+  --z-nav: 10;
+  --z-skip: 20;
+}
+
+/* ---- リセット・土台 ---- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }  /* §11-8 */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(60rem 30rem at 85% -8rem, var(--pale-aqua), transparent 65%),
+    linear-gradient(175deg, var(--mist), var(--white) 55%, var(--mist));
+  background-attachment: fixed;
+  line-height: 1.9;
+  font-size: 16px;
+  position: relative;
+}
+/* 粒状テクスチャ（§10-0-4） */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--azure); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--azure);  /* §11-6: フォーカスは即時・outline */
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+::selection { background: var(--pale-aqua); }
+
+h1, h2, h3 { font-family: var(--font-head); line-height: 1.45; letter-spacing: 0.04em; }
+h1 { font-size: clamp(1.6rem, 5vw, 2.5rem); margin: 0 0 0.6em; overflow-wrap: anywhere; min-width: 0; }
+h2 { font-size: clamp(1.3rem, 3.4vw, 1.8rem); margin: 2.6em 0 0.8em; }
+h3 { font-size: clamp(1.05rem, 2.6vw, 1.25rem); margin: 2em 0 0.6em; }
+p { margin: 0 0 1.2em; max-width: 40em; }  /* §11-3: 行長 全角25〜40字 */
+kbd {
+  font-family: var(--font-body);
+  font-size: 0.85em;
+  background: var(--white);
+  border: 1px solid var(--sky-blue);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  padding: 0.05em 0.55em;
+  white-space: nowrap;
+  color: var(--ink);
+}
+table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
+
+.wrap { max-width: 62rem; margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2.5rem); }
+
+/* ---- スキップリンク ---- */
+.skip {
+  position: absolute; left: 0.5rem; top: 0.5rem;
+  transform: translateY(-300%);
+  background: var(--white); padding: 0.4em 1em; border-radius: 6px;
+  z-index: var(--z-skip);
+}
+.skip:focus-visible { transform: none; }
+
+/* ---- マストヘッド型ナビ（§11-2: 万能ナビの指紋を避ける） ---- */
+.masthead { padding-top: 1.6rem; }
+.masthead .brandline {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 1rem;
+}
+.masthead .brand {
+  font-family: var(--font-head);
+  font-size: clamp(1.35rem, 4vw, 1.8rem);
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.masthead .brand .dot { color: var(--aqua-glow); }
+.masthead .tagline { font-size: 0.82rem; color: var(--ink-soft); letter-spacing: 0.05em; }
+.masthead nav {
+  margin-top: 0.7rem;
+  border-block: 1px solid var(--pale-aqua);
+  padding-block: 0.55rem;
+  display: flex; flex-wrap: wrap; gap: 0.2rem 1.6rem;
+  font-size: 0.92rem;
+}
+.masthead nav a { text-decoration: none; color: var(--ink-soft); white-space: nowrap; }
+.masthead nav a:hover { color: var(--azure); }
+.masthead nav a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 700;
+  border-bottom: 2px solid var(--aqua-glow);
+}
+
+/* ---- 見出しのグロー下線バー（§10-B 公式手段） ---- */
+.u-glow {
+  background-image: linear-gradient(90deg, var(--azure), var(--aqua-glow));
+  background-repeat: no-repeat;
+  background-size: 100% 0.28em;
+  background-position: 0 92%;
+  padding-inline: 0.06em;
+}
+
+/* ---- ヒーロー（§11-1: 100vh禁止・左重心の非対称） ---- */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: 1.5rem 3rem;
+  align-items: center;
+  padding-block: clamp(2.5rem, 7vw, 4.5rem) clamp(2rem, 5vw, 3.5rem);
+}
+.hero .lead { font-size: 1.05rem; color: var(--ink-soft); }
+.hero-art { position: relative; justify-self: center; }
+.hero-art .halo {
+  position: absolute; inset: -18%;
+  background: radial-gradient(closest-side, var(--white) 0%, rgba(255,255,255,0) 72%);
+  filter: blur(14px);
+  z-index: -1;
+}
+.hero-art img {
+  width: clamp(140px, 24vw, 230px);
+  border-radius: 22%;
+  transform: rotate(-4deg);
+  box-shadow: 0 18px 45px rgba(58, 147, 216, 0.28);
+}
+/* 四点スター（静と動の火花・§10-0-5） */
+.spark { position: absolute; width: 22px; height: 22px; }
+.spark svg { width: 100%; height: 100%; }
+.spark--tr { top: -8%; right: -14%; }
+.spark--bl { bottom: -4%; left: -16%; width: 15px; height: 15px; }
+/* 入場演出は初回1回だけ（§11-5） */
+@media (prefers-reduced-motion: no-preference) {
+  .hero > * { animation: rise 0.7s var(--ease-out) both; }
+  .hero > *:nth-child(2) { animation-delay: 0.12s; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+
+/* ---- 正直ステータス帯（公開準備中の告知） ---- */
+.notice {
+  border: 1px solid var(--sky-blue);
+  background: linear-gradient(120deg, var(--white), var(--pale-aqua));
+  border-radius: 12px;
+  padding: 0.9rem 1.3rem;
+  font-size: 0.92rem;
+  max-width: none;
+}
+.notice strong { color: var(--azure); }
+
+/* ---- Modラインナップ（§11-1: 3等分カードグリッドを避ける）
+   主役1枚を大きく、残り4本は行リストで非対称に見せる ---- */
+.lineup { margin-block: 2.5rem 3.5rem; }
+.lineup-featured {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.2rem 2rem;
+  align-items: center;
+  background:
+    radial-gradient(24rem 14rem at 100% 0%, rgba(53, 224, 196, 0.12), transparent 70%),
+    linear-gradient(150deg, var(--white), var(--pale-aqua));
+  border: 1px solid var(--pale-aqua);
+  border-radius: 18px;
+  padding: clamp(1.2rem, 4vw, 2.2rem);
+  box-shadow: 0 14px 40px rgba(58, 147, 216, 0.12);
+}
+.lineup-featured img { width: clamp(84px, 14vw, 132px); border-radius: 20%; }
+.lineup-featured h3 { margin: 0 0 0.3em; }
+.lineup-featured p { margin-bottom: 0.8em; }
+.lineup-rows { list-style: none; margin: 1.6rem 0 0; padding: 0; }
+.lineup-rows li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1.1rem;
+  align-items: center;
+  padding: 0.95rem 0.4rem;
+  border-bottom: 1px solid var(--pale-aqua);
+}
+.lineup-rows img { width: 52px; border-radius: 22%; }
+.lineup-rows .name { font-family: var(--font-head); font-size: 1.06rem; }
+.lineup-rows .desc { color: var(--ink-soft); font-size: 0.9rem; display: block; }
+.lineup-rows a.more { white-space: nowrap; font-size: 0.9rem; }
+
+/* ---- ボタン（§11-6: 5状態を実装） ---- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+  background: linear-gradient(120deg, var(--azure), var(--aqua-glow));
+  border: none;
+  border-radius: 999px;
+  padding: 0.65em 1.7em;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.18s var(--ease-out);  /* §11-5: allは使わない */
+}
+.btn:hover { transform: translateY(-2px); color: var(--white); }
+.btn:active { transform: translateY(0); }
+.btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  background: var(--ink-soft);
+}
+.btn--ghost {
+  color: var(--azure);
+  background: transparent;
+  border: 1.5px solid var(--sky-blue);
+}
+.btn--ghost:hover { color: var(--ink); transform: translateY(-2px); }
+
+/* ---- 記事・ドキュメント面 ---- */
+.doc { padding-block: 1.5rem 3rem; }
+.breadcrumb { font-size: 0.85rem; color: var(--ink-soft); margin-block: 1.2rem 0; }
+.breadcrumb a { color: var(--ink-soft); }
+.modhead {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.4rem 2rem;
+  align-items: center;
+  margin-block: 1.4rem 0.6rem;
+}
+.modhead img { width: clamp(88px, 15vw, 128px); border-radius: 20%; box-shadow: 0 10px 30px rgba(58,147,216,0.22); }
+.modhead .en { color: var(--ink-soft); font-size: 0.95rem; letter-spacing: 0.06em; }
+.meta-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block: 0.8rem 0; padding: 0; list-style: none; font-size: 0.8rem; }
+.meta-chips li {
+  background: var(--white);
+  border: 1px solid var(--pale-aqua);
+  border-radius: 999px;
+  padding: 0.15em 0.9em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+/* ---- モジュール一覧（ドキュメント型・カード入れ子にしない） ---- */
+.modules { list-style: none; margin: 1.4rem 0 0; padding: 0; }
+.modules > li {
+  padding: 1.2rem 0.2rem 1.05rem;
+  border-top: 1px solid var(--pale-aqua);
+}
+.modules > li:last-child { border-bottom: 1px solid var(--pale-aqua); }
+.modules .mod-line {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.8rem;
+}
+.modules .mod-name { font-family: var(--font-head); font-size: 1.12rem; font-weight: 700; }
+.modules .mod-desc { margin: 0.35em 0 0; color: var(--ink-soft); max-width: 44em; }
+.tag {
+  font-size: 0.72rem;
+  border-radius: 999px;
+  padding: 0.1em 0.8em;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+.tag--on  { background: var(--pale-aqua); color: var(--azure); border: 1px solid var(--sky-blue); }
+.tag--off { background: var(--white); color: var(--ink-soft); border: 1px solid var(--pale-aqua); }
+.tag--key { background: var(--white); color: var(--ink); border: 1px solid var(--sky-blue); }
+
+/* ---- 表 ---- */
+.t {
+  width: 100%;
+  font-size: 0.92rem;
+  background: var(--white);
+  border: 1px solid var(--pale-aqua);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.t th, .t td { text-align: left; padding: 0.6em 1em; border-bottom: 1px solid var(--pale-aqua); vertical-align: top; }
+.t tr:last-child > * { border-bottom: none; }
+.t th { background: var(--mist); font-weight: 700; white-space: nowrap; }
+.t-scroll { overflow-x: auto; }
+
+/* ---- 手順（導入ガイド） ---- */
+.steps { counter-reset: step; list-style: none; margin: 1.6rem 0; padding: 0; }
+.steps > li {
+  position: relative;
+  padding: 0 0 1.8rem 3.4rem;
+}
+.steps > li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute; left: 0; top: 0.1em;
+  width: 2.2rem; height: 2.2rem;
+  display: grid; place-items: center;
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  color: var(--white);
+  background: linear-gradient(140deg, var(--azure), var(--aqua-glow));
+  border-radius: 50%;
+}
+.steps > li:not(:last-child)::after {
+  content: "";
+  position: absolute; left: 1.05rem; top: 2.7rem; bottom: 0.3rem;
+  width: 2px;
+  background: var(--pale-aqua);
+}
+.steps h3 { margin: 0 0 0.4em; }
+.steps p { margin-bottom: 0.6em; }
+
+/* ---- FAQ ---- */
+.faq details {
+  border-bottom: 1px solid var(--pale-aqua);
+  padding-block: 0.4rem;
+}
+.faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.7rem 0.2rem;
+  list-style-position: outside;
+}
+.faq summary:hover { color: var(--azure); }
+.faq details > div { padding: 0 0.2rem 1rem; color: var(--ink-soft); }
+.faq details > div p { max-width: 44em; }
+
+/* ---- DLプレースホルダ（正直表示・§11-7） ---- */
+.dl-box {
+  border: 1.5px dashed var(--sky-blue);
+  border-radius: 14px;
+  background: var(--white);
+  padding: 1.3rem 1.5rem;
+  margin-block: 1.8rem;
+}
+.dl-box p { margin-bottom: 0.7em; max-width: none; }
+.dl-box .small { font-size: 0.85rem; color: var(--ink-soft); }
+
+/* ---- ステートメント型フッター（§11-2） ---- */
+.site-foot {
+  margin-top: 4rem;
+  background: linear-gradient(160deg, var(--navy), var(--navy-surface));
+  color: var(--off-white);           /* §11-4: ダーク面の文字は明色 */
+  padding-block: 2.6rem 1.6rem;
+}
+.site-foot .statement {
+  font-family: var(--font-head);
+  font-size: clamp(1.05rem, 2.6vw, 1.35rem);
+  letter-spacing: 0.08em;
+  margin: 0 0 1.2rem;
+}
+.site-foot .statement .glow { color: var(--aqua-glow); }
+.site-foot a { color: var(--bright-azure); }
+.site-foot a:hover { color: var(--off-white); }
+.site-foot .foot-links { display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; font-size: 0.85rem; margin-bottom: 1.4rem; }
+.site-foot .foot-links a { text-decoration: none; white-space: nowrap; }
+.site-foot .legal { font-size: 0.75rem; color: var(--sky-blue); line-height: 1.8; max-width: none; margin: 0; }
+
+/* ---- レスポンシブ（§11-8） ---- */
+@media (max-width: 720px) {
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .hero-art { order: -1; justify-self: start; }
+  .hero-art img { width: 110px; }
+  .lineup-featured { grid-template-columns: minmax(0, 1fr); }
+  .lineup-featured img { width: 76px; }
+  .lineup-rows li { grid-template-columns: auto minmax(0, 1fr); }
+  .lineup-rows a.more { grid-column: 2; justify-self: start; }
+  .modhead { grid-template-columns: minmax(0, 1fr); }
+  .modhead img { width: 84px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

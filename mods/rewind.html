@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>サタのまきもどし（Sata Rewind）— 時間巻き戻し4モジュール | SATA SERIES</title>
+<meta name="description" content="Hキーで数秒前へ巻き戻し。逆再生アニメーション・死亡時自動巻き戻し（絶対死なない世界）。Minecraft 1.21.1（NeoForge）向け時間巻き戻しMod 4モジュールの機能と既定設定を解説。">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="サタのまきもどし — 時間巻き戻し4モジュール">
+<meta property="og:description" content="Hキーで数秒前へ逆再生巻き戻し。死亡キャンセルも。Minecraft 1.21.1 / NeoForge対応。">
+<meta property="og:image" content="../assets/ogp.png">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="masthead wrap">
+  <div class="brandline">
+    <a class="brand" href="../index.html">SATA SERIES<span class="dot">.</span></a>
+    <span class="tagline">Minecraft 1.21.1 / NeoForge の便利Modシリーズ</span>
+  </div>
+  <nav aria-label="サイト内">
+    <a href="../index.html">トップ</a>
+    <a href="../guide.html">導入ガイド</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="../about.html">サイトについて</a>
+  </nav>
+</header>
+
+<main id="main" class="doc wrap">
+  <p class="breadcrumb"><a href="../index.html">トップ</a> › <a href="../index.html#mods">Mod一覧</a> › サタのまきもどし</p>
+
+  <header class="modhead">
+    <img src="../assets/icon_rewind.svg" alt="Sata Rewindのアイコン" width="400" height="400">
+    <div>
+      <h1 style="margin-bottom: 0.2em;">サタのまきもどし</h1>
+      <p class="en">Sata Rewind — 時間巻き戻し4モジュール</p>
+      <ul class="meta-chips">
+        <li>Minecraft 1.21.1</li>
+        <li>NeoForge</li>
+        <li>前提: Sata Core</li>
+        <li>modid: satarewind</li>
+        <li>MITライセンス</li>
+      </ul>
+    </div>
+  </header>
+
+  <p>
+    「あっ」と思ったその瞬間に、<kbd>H</kbd>キーで数秒前へ。
+    周囲のワールド・モブ・自分の状態を0.5秒ごとに記録し、
+    時間が逆流する<strong>逆再生アニメーション</strong>で巻き戻すModです。
+    溶岩ダイブも、置き間違えたブロックも、なかったことにできます。
+    死んだ瞬間に死をキャンセルする「絶対死なない世界」モードも搭載（既定OFF）。
+    シングルプレイ向けの設計です。
+  </p>
+
+  <!-- [VIDEO EMBED PLACEHOLDER] 紹介動画をYouTubeに公開後、この位置にiframe埋め込みを挿入 -->
+
+  <div class="dl-box">
+    <p><strong>ダウンロード（準備中）</strong></p>
+    <p>Modrinth / CurseForge での公開準備中です。公開後、ここにダウンロードボタンを設置します。</p>
+    <!-- [DL LINK PLACEHOLDER] 公開後に差し替え:
+         <a class="btn" href="https://modrinth.com/mod/XXXX">Modrinthでダウンロード</a>
+         <a class="btn btn--ghost" href="https://www.curseforge.com/minecraft/mc-mods/XXXX">CurseForge</a> -->
+    <p class="small">導入には前提Modの <a href="core.html">Sata Core</a> が必要です。</p>
+  </div>
+
+  <!-- ============================================================
+       [AD SLOT / AdSense] Modページ・リード文直下（本文開始前）
+       ============================================================ -->
+
+  <h2>モジュール一覧（4）</h2>
+  <ul class="modules">
+    <li>
+      <div class="mod-line"><span class="mod-name">記録エンジン（Snapshot）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">
+        周囲（既定3チャンク）のワールド・モブ・自分の状態を0.5秒ごとに記録します（既定10秒分）。
+        位置・HP・満腹度・経験値・インベントリ・壊した/置いたブロックの差分まで対象。
+        巻き戻し機能の土台なので、基本はONのままにしてください。
+      </p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">手動巻き戻し（ManualRewind）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">
+        <kbd>H</kbd>キー（変更可）で数秒前へ巻き戻します。巻き戻す秒数・クールダウンを設定できるほか、
+        「インベントリは戻さない」＝アイテムだけ持ち帰る記憶保持モードも選べます。
+      </p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">死亡時自動巻き戻し（DeathRewind）</span><span class="tag tag--off">既定OFF</span></div>
+      <p class="mod-desc">
+        死んだ瞬間に死をキャンセルして数秒前へ戻る「絶対死なない世界」。
+        連続死ループを防ぐクールダウンつき。ゲーム性が大きく変わるため既定OFFです。
+      </p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">逆再生演出（RewindFx）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">
+        巻き戻しを「時間が逆流するアニメーション」にします。モブが記録した経路を逆走し、
+        ブロックが新しい順に復元され、パーティクルと効果音が重なります。OFFにすると一瞬で巻き戻ります。
+      </p>
+    </li>
+  </ul>
+
+  <h2>おもな設定項目</h2>
+  <div class="t-scroll">
+    <table class="t">
+      <tr><th>記録範囲（チャンク）／記録する秒数</th><td>記録エンジンの対象範囲と、さかのぼれる時間です。広く・長くするほどメモリを使います。</td></tr>
+      <tr><th>巻き戻す秒数／クールダウン（秒）</th><td>手動巻き戻し1回でさかのぼる時間と、連発を防ぐ待ち時間です。</td></tr>
+      <tr><th>インベントリは戻さない</th><td>ONでアイテムは巻き戻らず「記憶」を保持。OFFでアイテムも数秒前の状態に戻ります。</td></tr>
+      <tr><th>死亡時に戻る秒数／死亡巻き戻しのクールダウン</th><td>死亡時自動巻き戻しの戻り幅と再発動までの待ち時間です。</td></tr>
+      <tr><th>逆再生の長さ（tick）／パーティクル量（%）</th><td>逆再生演出のスピードと派手さを調整できます。</td></tr>
+    </table>
+  </div>
+  <p>
+    設定はすべてゲーム内の<kbd>B</kbd>キー（<a href="core.html">Sata Core</a>の統一設定画面）から変更できます。
+  </p>
+
+  <h2>知っておいてほしいこと</h2>
+  <ul>
+    <li>巻き戻るのは「記録範囲内の周囲」です。範囲外のブロック変更やレッドストーン回路の状態は対象外です。</li>
+    <li>シングルプレイ前提の設計です。マルチでも動作しますが、他プレイヤーから見ると周囲のモブやブロックが急に戻って見えます。</li>
+    <li>消滅・死亡したモブの復活はv1では対象外です（生存モブの位置とHPが戻ります）。</li>
+  </ul>
+
+  <h2>ほかのSata Mod</h2>
+  <p>
+    <a href="core.html">Sata Core（前提Mod）</a> ／
+    <a href="toolbox.html">べんり道具箱</a> ／
+    <a href="battle.html">バトルサポート</a> ／
+    <a href="build.html">けんちくヘルパー</a> ／
+    <a href="stream.html">配信サポート</a>
+  </p>
+
+  <!-- ============================================================
+       [AD SLOT / AdSense] Modページ・本文末尾（フッター手前）
+       ============================================================ -->
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="statement">遊ぶ時間は、ぜんぶ<span class="glow">遊び</span>に使おう。</p>
+    <div class="foot-links">
+      <a href="../index.html">トップ</a>
+      <a href="../guide.html">導入ガイド</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../about.html">サイトについて</a>
+      <a href="../privacy.html">プライバシーポリシー</a>
+    </div>
+    <p class="legal">
+      © 2026 sata — SATA SERIESは個人制作のModです。<br>
+      NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.<br>
+      本サイトはMojang/Microsoftとは無関係の非公式サイトです。Minecraftは Mojang AB の商標です。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

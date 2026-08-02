@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>サタの配信サポート（Sata Stream Support）— ミニマップ・配信向け5モジュール | SATA SERIES</title>
+<meta name="description" content="ミニマップ・ガチマップ（Jキー・マーカー/建造物表示）・セッション統計HUD・死亡地点マーカー・モンスター接近警告。Minecraft 1.21.1（NeoForge）向け配信系5モジュールの機能解説。">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="サタの配信サポート — 配信向け5モジュール">
+<meta property="og:description" content="ミニマップ／ガチマップ・統計HUD・死亡地点・接近警告。Minecraft 1.21.1 / NeoForge対応。">
+<meta property="og:image" content="../assets/ogp.png">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="masthead wrap">
+  <div class="brandline">
+    <a class="brand" href="../index.html">SATA SERIES<span class="dot">.</span></a>
+    <span class="tagline">Minecraft 1.21.1 / NeoForge の便利Modシリーズ</span>
+  </div>
+  <nav aria-label="サイト内">
+    <a href="../index.html">トップ</a>
+    <a href="../guide.html">導入ガイド</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="../about.html">サイトについて</a>
+  </nav>
+</header>
+
+<main id="main" class="doc wrap">
+  <p class="breadcrumb"><a href="../index.html">トップ</a> › <a href="../index.html#mods">Mod一覧</a> › サタの配信サポート</p>
+
+  <header class="modhead">
+    <img src="../assets/icon_stream.png" alt="Sata Stream Supportのアイコン" width="400" height="400">
+    <div>
+      <h1 style="margin-bottom: 0.2em;">サタの配信サポート</h1>
+      <p class="en">Sata Stream Support — 配信向け5モジュール</p>
+      <ul class="meta-chips">
+        <li>Minecraft 1.21.1</li>
+        <li>NeoForge</li>
+        <li>前提: Sata Core</li>
+        <li>modid: satastream</li>
+        <li>MITライセンス</li>
+      </ul>
+    </div>
+  </header>
+
+  <p>
+    配信・録画の画面がそのまま「見せられる画面」になるModです。
+    ミニマップや統計HUDを画面に出し、死亡地点や敵の接近も逃さず表示。
+    もちろん配信をしない人の普段使いにも便利です。
+  </p>
+
+  <!-- [VIDEO EMBED PLACEHOLDER] 紹介動画をYouTubeに公開後、この位置にiframe埋め込みを挿入 -->
+
+  <div class="dl-box">
+    <p><strong>ダウンロード（準備中）</strong></p>
+    <p>Modrinth / CurseForge での公開準備中です。公開後、ここにダウンロードボタンを設置します。</p>
+    <!-- [DL LINK PLACEHOLDER] 公開後に差し替え:
+         <a class="btn" href="https://modrinth.com/mod/XXXX">Modrinthでダウンロード</a>
+         <a class="btn btn--ghost" href="https://www.curseforge.com/minecraft/mc-mods/XXXX">CurseForge</a> -->
+    <p class="small">導入には前提Modの <a href="core.html">Sata Core</a> が必要です。</p>
+  </div>
+
+  <!-- ============================================================
+       [AD SLOT / AdSense] Modページ・リード文直下（本文開始前）
+       ============================================================ -->
+
+  <h2>モジュール一覧（5）</h2>
+  <ul class="modules">
+    <li>
+      <div class="mod-line"><span class="mod-name">ミニマップ（Minimap）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">
+        画面左上に周辺の地形マップを表示します（北固定・0.5秒ごと更新の軽量設計）。
+        マーカーや建造物の表示切替つき。ガチマップとは同時にONにできません。
+      </p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">ガチマップ（WorldMap）</span><span class="tag tag--off">既定OFF</span><span class="tag tag--key"><kbd>J</kbd>で開く</span></div>
+      <p class="mod-desc">
+        自分が行ったことのある場所を記録して表示する本格マップ。
+        ドラッグで移動・ホイールでズーム、クリックで名前つきマーカーの追加・削除ができます。
+        死亡地点・建造物（村・要塞・森の洋館・ネザー要塞・砦の遺跡・エンドシティ）・
+        チャンクグリッドの表示切替つき。ミニマップとは同時にONにできません。
+      </p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">セッション統計HUD（SessionHud）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">
+        画面右上にプレイ時間・死亡数・移動距離を表示します。
+        項目ごとに表示/非表示を選べて、配信画面にそのまま映せます。
+      </p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">死亡地点マーカー（DeathPoint）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">
+        死んだ場所の座標をチャットに表示し、ワールド内に☠マーカーを出します。
+        回収に近づくとマーカーは消えます。
+      </p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">モンスター接近警告（MonsterAlert）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">
+        敵対モブが近くにいると画面下に⚠と数を表示します。
+        「後ろ！後ろ！」を自分で気付けます。警告距離は設定可。
+      </p>
+    </li>
+  </ul>
+
+  <h2>ガチマップの操作</h2>
+  <div class="t-scroll">
+    <table class="t">
+      <tr><th><kbd>J</kbd></th><td>ガチマップを開く（モジュールONのとき）</td></tr>
+      <tr><th>ドラッグ</th><td>マップの移動</td></tr>
+      <tr><th>ホイール</th><td>ズームイン／アウト</td></tr>
+      <tr><th>空きをクリック</th><td>名前つきマーカーを追加</td></tr>
+      <tr><th>マーカーをクリック</th><td>マーカーを削除（確認あり）</td></tr>
+      <tr><th>「建造物を探す」ボタン</th><td>近くの建造物を探索して◈マークで表示します。負荷対策のため実行は30秒に1回までです。</td></tr>
+    </table>
+  </div>
+
+  <h2>既知の制限</h2>
+  <ul>
+    <li>ガチマップはネザーでは天井の地形を拾うため、実用性が低いです（今後の対応候補です）。</li>
+    <li>建造物探索は負荷の大きい処理のため、30秒のクールダウンがあります。</li>
+    <li>ミニマップとガチマップは排他です。どちらか一方だけをONにして使います。</li>
+  </ul>
+
+  <h2>ほかのSata Mod</h2>
+  <p>
+    <a href="core.html">Sata Core（前提Mod）</a> ／
+    <a href="toolbox.html">べんり道具箱</a> ／
+    <a href="battle.html">バトルサポート</a> ／
+    <a href="build.html">けんちくヘルパー</a> ／
+    <a href="rewind.html">まきもどし</a>
+  </p>
+
+  <!-- ============================================================
+       [AD SLOT / AdSense] Modページ・本文末尾（フッター手前）
+       ============================================================ -->
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="statement">遊ぶ時間は、ぜんぶ<span class="glow">遊び</span>に使おう。</p>
+    <div class="foot-links">
+      <a href="../index.html">トップ</a>
+      <a href="../guide.html">導入ガイド</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../about.html">サイトについて</a>
+      <a href="../privacy.html">プライバシーポリシー</a>
+    </div>
+    <p class="legal">
+      © 2026 sata — SATA SERIESは個人制作のModです。<br>
+      NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.<br>
+      本サイトはMojang/Microsoftとは無関係の非公式サイトです。Minecraftは Mojang AB の商標です。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

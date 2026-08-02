@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>導入ガイド — NeoForge 1.21.1 の入れ方とModの導入手順 | SATA SERIES</title>
+<meta name="description" content="Minecraft 1.21.1 に NeoForge を導入して、SATAシリーズのModを入れるまでを初めての人向けに解説。インストーラーの実行からmodsフォルダへの配置、起動確認まで。">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="導入ガイド — NeoForge 1.21.1 の入れ方">
+<meta property="og:description" content="NeoForgeの導入からSATAシリーズModの起動確認まで、初めての人向けに解説。">
+<meta property="og:image" content="assets/ogp.png">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="masthead wrap">
+  <div class="brandline">
+    <a class="brand" href="index.html">SATA SERIES<span class="dot">.</span></a>
+    <span class="tagline">Minecraft 1.21.1 / NeoForge の便利Modシリーズ</span>
+  </div>
+  <nav aria-label="サイト内">
+    <a href="index.html">トップ</a>
+    <a href="guide.html" aria-current="page">導入ガイド</a>
+    <a href="faq.html">FAQ</a>
+    <a href="about.html">サイトについて</a>
+  </nav>
+</header>
+
+<main id="main" class="doc wrap">
+  <h1 style="margin-top: 1.2em;">導入ガイド<br><span style="font-size: 0.6em;">NeoForge 1.21.1 と SATAシリーズの入れ方</span></h1>
+  <p>
+    Modを入れるのが初めての人向けに、ゼロから起動確認までを説明します。
+    必要なのは Java版Minecraft（1.21.1）だけ。追加ソフトの購入などは一切ありません。
+  </p>
+
+  <p class="notice">
+    <strong>先におことわり:</strong>
+    SATAシリーズのjarファイルは現在 Modrinth / CurseForge で公開準備中です。
+    公開後、このページと各Modページにダウンロードリンクを掲載します。
+    手順自体は他のNeoForge Modでも同じなので、先に読んでおけます。
+  </p>
+
+  <!-- ============================================================
+       [AD SLOT / AdSense] 導入ガイド・リード直下（手順開始前）
+       ============================================================ -->
+
+  <h2>手順（所要 約10分）</h2>
+  <ol class="steps">
+    <li>
+      <h3>バニラの1.21.1を一度起動しておく</h3>
+      <p>
+        Minecraftランチャーで、バージョン「1.21.1」を選んで一度ゲームを起動し、
+        タイトル画面まで進んだら閉じます。これで1.21.1本体のファイルが揃います。
+      </p>
+    </li>
+    <li>
+      <h3>NeoForgeのインストーラーを入手する</h3>
+      <p>
+        NeoForge公式サイト（<a href="https://neoforged.net/" rel="external">neoforged.net</a>）から、
+        <strong>Minecraft 1.21.1向け</strong>のインストーラー（installer.jar）をダウンロードします。
+        バージョン選択で「1.21.1」を選ぶのを忘れずに。
+      </p>
+    </li>
+    <li>
+      <h3>インストーラーを実行する</h3>
+      <p>
+        ダウンロードした installer.jar をダブルクリックし、
+        「Install client」を選んだまま「Proceed」を押します。
+        数十秒でインストールが終わり、ランチャーに「NeoForge」のプロファイルが追加されます。
+      </p>
+      <p style="font-size: 0.88rem; color: var(--ink-soft);">
+        ダブルクリックで開かない場合はJavaの関連付けの問題です。FAQの「インストーラーが開かない」を見てください。
+      </p>
+    </li>
+    <li>
+      <h3>modsフォルダにjarを入れる</h3>
+      <p>
+        エクスプローラーのアドレス欄に <kbd>%appdata%\.minecraft\mods</kbd> と入力してEnter。
+        （modsフォルダが無い場合は、NeoForgeを一度起動すると作られます。自分で新規作成してもOK）
+      </p>
+      <p>
+        ここに <strong>Sata Core のjar＋使いたいSata Modのjar</strong> を入れます。
+        Sata Coreは全Mod共通の前提なので必ず入れてください。
+      </p>
+    </li>
+    <li>
+      <h3>NeoForgeプロファイルで起動する</h3>
+      <p>
+        ランチャーで起動構成「NeoForge」を選んで起動します。
+        タイトル画面の「Mod」ボタンの一覧に、入れたSata Modが表示されていれば成功です。
+      </p>
+    </li>
+    <li>
+      <h3>ゲーム内で<kbd>B</kbd>キーを押す</h3>
+      <p>
+        ワールドに入って<kbd>B</kbd>キーを押すと、サタシリーズの統一設定画面が開きます。
+        ここで各モジュールのON/OFFと詳細設定ができます。設定はここで完結、
+        設定ファイルを直接さわる必要は基本ありません。
+      </p>
+    </li>
+  </ol>
+
+  <h2>うまくいかないとき</h2>
+  <ul>
+    <li>クラッシュする・起動しない → <strong>Minecraftのバージョンが1.21.1か</strong>、<strong>NeoForgeが1.21.1向けか</strong>をまず確認。ForgeやFabricでは動きません。</li>
+    <li>Modが一覧に出ない → jarが <kbd>mods</kbd> フォルダ直下にあるか（zipのままや別フォルダはNG）を確認。</li>
+    <li>「Sata Coreがありません」と言われる → Sata Coreのjarを入れ忘れています。</li>
+    <li>そのほかは <a href="faq.html">FAQ</a> にまとめています。</li>
+  </ul>
+
+  <h2>次に読む</h2>
+  <p>
+    導入できたら、まずは主役の
+    <a href="mods/toolbox.html">サタのべんり道具箱（機能とキー操作）</a>へ。
+    シリーズ全体は<a href="index.html#mods">Mod一覧</a>からどうぞ。
+  </p>
+
+  <!-- ============================================================
+       [AD SLOT / AdSense] 導入ガイド・本文末尾（フッター手前）
+       ============================================================ -->
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="statement">遊ぶ時間は、ぜんぶ<span class="glow">遊び</span>に使おう。</p>
+    <div class="foot-links">
+      <a href="index.html">トップ</a>
+      <a href="guide.html">導入ガイド</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">サイトについて</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </div>
+    <p class="legal">
+      © 2026 sata — SATA SERIESは個人制作のModです。<br>
+      NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.<br>
+      本サイトはMojang/Microsoftとは無関係の非公式サイトです。Minecraftは Mojang AB の商標です。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

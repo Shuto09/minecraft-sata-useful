@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>サタのけんちくヘルパー（Sata Build Helper）— 建築系3モジュール | SATA SERIES</title>
+<meta name="description" content="リーチ延長・湧きつぶしチェッカー・ファントム対策。Minecraft 1.21.1（NeoForge）向け建築系3モジュールの機能と既定設定を解説。">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="サタのけんちくヘルパー — 建築系3モジュール">
+<meta property="og:description" content="リーチ延長・湧きつぶしチェッカー・ファントム対策。Minecraft 1.21.1 / NeoForge対応。">
+<meta property="og:image" content="../assets/ogp.png">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="masthead wrap">
+  <div class="brandline">
+    <a class="brand" href="../index.html">SATA SERIES<span class="dot">.</span></a>
+    <span class="tagline">Minecraft 1.21.1 / NeoForge の便利Modシリーズ</span>
+  </div>
+  <nav aria-label="サイト内">
+    <a href="../index.html">トップ</a>
+    <a href="../guide.html">導入ガイド</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="../about.html">サイトについて</a>
+  </nav>
+</header>
+
+<main id="main" class="doc wrap">
+  <p class="breadcrumb"><a href="../index.html">トップ</a> › <a href="../index.html#mods">Mod一覧</a> › サタのけんちくヘルパー</p>
+
+  <header class="modhead">
+    <img src="../assets/icon_build.png" alt="Sata Build Helperのアイコン" width="400" height="400">
+    <div>
+      <h1 style="margin-bottom: 0.2em;">サタのけんちくヘルパー</h1>
+      <p class="en">Sata Build Helper — 建築系3モジュール</p>
+      <ul class="meta-chips">
+        <li>Minecraft 1.21.1</li>
+        <li>NeoForge</li>
+        <li>前提: Sata Core</li>
+        <li>modid: satabuild</li>
+        <li>MITライセンス</li>
+      </ul>
+    </div>
+  </header>
+
+  <p>
+    建築中の「あと少し届かない」「湧きつぶし漏れが不安」「ファントムがうるさい」を
+    3つのモジュールで解決する、建築勢のための小さなModです。
+  </p>
+
+  <!-- [VIDEO EMBED PLACEHOLDER] 紹介動画をYouTubeに公開後、この位置にiframe埋め込みを挿入 -->
+
+  <div class="dl-box">
+    <p><strong>ダウンロード（準備中）</strong></p>
+    <p>Modrinth / CurseForge での公開準備中です。公開後、ここにダウンロードボタンを設置します。</p>
+    <!-- [DL LINK PLACEHOLDER] 公開後に差し替え:
+         <a class="btn" href="https://modrinth.com/mod/XXXX">Modrinthでダウンロード</a>
+         <a class="btn btn--ghost" href="https://www.curseforge.com/minecraft/mc-mods/XXXX">CurseForge</a> -->
+    <p class="small">導入には前提Modの <a href="core.html">Sata Core</a> が必要です。</p>
+  </div>
+
+  <!-- ============================================================
+       [AD SLOT / AdSense] Modページ・リード文直下（本文開始前）
+       ============================================================ -->
+
+  <h2>モジュール一覧（3）</h2>
+  <ul class="modules">
+    <li>
+      <div class="mod-line"><span class="mod-name">リーチ延長（Reach）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">
+        ブロックを設置・破壊できる距離を、設定したブロック数ぶん延ばします。
+        足場を組む回数が減って建築がはかどります。
+      </p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">湧きつぶしチェッカー（LightOverlay）</span><span class="tag tag--off">既定OFF</span></div>
+      <p class="mod-desc">
+        モブが湧ける暗い地面に赤い✕マークを表示します。
+        松明を置くと✕はすぐ消えるので、置き漏れが一目でわかります。チェック範囲は設定可。
+      </p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">ファントム対策（NoPhantom）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">
+        ファントムが新しくスポーンしなくなります。夜通し建築しても安心です。
+      </p>
+    </li>
+  </ul>
+
+  <h2>おもな設定項目</h2>
+  <div class="t-scroll">
+    <table class="t">
+      <tr><th>延長ブロック数</th><td>リーチをどれだけ延ばすかを設定します。</td></tr>
+      <tr><th>チェック範囲</th><td>湧きつぶしチェッカーが✕マークを表示する範囲です。</td></tr>
+    </table>
+  </div>
+  <p>
+    設定はすべてゲーム内の<kbd>B</kbd>キー（<a href="core.html">Sata Core</a>の統一設定画面）から変更できます。
+  </p>
+
+  <h2>ほかのSata Mod</h2>
+  <p>
+    <a href="core.html">Sata Core（前提Mod）</a> ／
+    <a href="toolbox.html">べんり道具箱</a> ／
+    <a href="battle.html">バトルサポート</a> ／
+    <a href="stream.html">配信サポート</a> ／
+    <a href="rewind.html">まきもどし</a>
+  </p>
+
+  <!-- ============================================================
+       [AD SLOT / AdSense] Modページ・本文末尾（フッター手前）
+       ============================================================ -->
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="statement">遊ぶ時間は、ぜんぶ<span class="glow">遊び</span>に使おう。</p>
+    <div class="foot-links">
+      <a href="../index.html">トップ</a>
+      <a href="../guide.html">導入ガイド</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../about.html">サイトについて</a>
+      <a href="../privacy.html">プライバシーポリシー</a>
+    </div>
+    <p class="legal">
+      © 2026 sata — SATA SERIESは個人制作のModです。<br>
+      NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.<br>
+      本サイトはMojang/Microsoftとは無関係の非公式サイトです。Minecraftは Mojang AB の商標です。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

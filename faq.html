@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — よくある質問 | SATA SERIES</title>
+<meta name="description" content="SATAシリーズModのよくある質問。対応バージョン・前提Mod・マルチプレイ・Modパック収録・既知の制限・トラブルシューティングをまとめています。">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FAQ — よくある質問 | SATA SERIES">
+<meta property="og:description" content="対応バージョン・前提Mod・マルチプレイ・既知の制限など。">
+<meta property="og:image" content="assets/ogp.png">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="masthead wrap">
+  <div class="brandline">
+    <a class="brand" href="index.html">SATA SERIES<span class="dot">.</span></a>
+    <span class="tagline">Minecraft 1.21.1 / NeoForge の便利Modシリーズ</span>
+  </div>
+  <nav aria-label="サイト内">
+    <a href="index.html">トップ</a>
+    <a href="guide.html">導入ガイド</a>
+    <a href="faq.html" aria-current="page">FAQ</a>
+    <a href="about.html">サイトについて</a>
+  </nav>
+</header>
+
+<main id="main" class="doc wrap">
+  <h1 style="margin-top: 1.2em;">よくある質問</h1>
+  <p>
+    導入・対応環境・既知の制限をまとめました。
+    ここに無い質問は<a href="about.html">サイトについて</a>の連絡先からどうぞ。
+  </p>
+
+  <!-- ============================================================
+       [AD SLOT / AdSense] FAQ・リード直下
+       ============================================================ -->
+
+  <h2>導入・環境</h2>
+  <section class="faq">
+    <details>
+      <summary>どのバージョンで動きますか？</summary>
+      <div><p>Minecraft <strong>1.21.1（Java版）＋ NeoForge</strong> 向けです。Forge・Fabric・統合版（スマホ/Switch等）では動きません。</p></div>
+    </details>
+    <details>
+      <summary>Sata Coreは必ず必要ですか？</summary>
+      <div><p>はい。道具箱・バトル・けんちく・配信の4Modはすべて <a href="mods/core.html">Sata Core</a> が前提です。core＋使いたいModだけの構成で動きます。</p></div>
+    </details>
+    <details>
+      <summary>ダウンロードはどこからできますか？</summary>
+      <div><p>現在 Modrinth / CurseForge での公開準備中です。公開でき次第、各Modページにリンクを掲載します。それまでは配布していません。</p></div>
+    </details>
+    <details>
+      <summary>マルチプレイ（サーバー）でも使えますか？</summary>
+      <div><p>クライアント＆サーバー両対応を前提に作っています。マルチでは<strong>設定の正はサーバー側</strong>で、有効モジュールがサーバーと同期されます（表示系の見た目はクライアント側でも調整できます）。</p></div>
+    </details>
+    <details>
+      <summary>Modパックに入れてもいいですか？</summary>
+      <div><p>はい。全Mod <strong>MITライセンス</strong>なので、Modパックへの収録・再配布ができます。</p></div>
+    </details>
+    <details>
+      <summary>NeoForgeのインストーラーがダブルクリックで開きません</summary>
+      <div><p>jarファイルがJavaに関連付いていないのが原因です。Minecraft Java版が動いているPCならJava自体は入っているので、jarを右クリック→「プログラムから開く」でJavaを選ぶか、Adoptium等からJava 21をインストールして関連付けてください。</p></div>
+    </details>
+  </section>
+
+  <h2>機能・設定</h2>
+  <section class="faq">
+    <details>
+      <summary>使わない機能が動いて重くなりませんか？</summary>
+      <div><p>OFFにしたモジュールは処理自体が動かない設計です。既定でも、ゲームバランスに影響が大きい機能（HP増加・アイテム吸引など）はOFFになっています。</p></div>
+    </details>
+    <details>
+      <summary>一括破壊がサバイバルで強すぎませんか？</summary>
+      <div><p>既定で「スニーク中のみ発動」「ツール耐久を消費」「満腹度を消費」「ツール保護（残り耐久1で停止）」がONになっており、バランスを崩しにくい設定から始まります。物足りなければBキーの設定画面で緩められます。</p></div>
+    </details>
+    <details>
+      <summary>キー操作は何がありますか？</summary>
+      <div>
+        <p><kbd>B</kbd>＝統一設定画面（core）／<kbd>M</kbd>＝アイテム吸引の切替（道具箱）／<kbd>G</kbd>＝インベントリ整理（道具箱）／<kbd>J</kbd>＝ガチマップ（配信サポート）。いずれもMinecraftの設定画面から変更できます。</p>
+      </div>
+    </details>
+    <details>
+      <summary>設定を友だちと同じにしたい</summary>
+      <div><p>Bキーの設定画面から設定一式をクリップボードに「書き出し」できます。受け取った側は「読み込み」で適用。不正なデータは何も変更せずにはじかれます。</p></div>
+    </details>
+    <details>
+      <summary>ゲーム内の表示言語を変えられますか？</summary>
+      <div><p>日本語・English・简体中文・한국어・Español・Português の6言語に対応しています。Minecraft本体の言語に自動追従するほか、設定画面の言語だけ個別に固定できます。</p></div>
+    </details>
+    <details>
+      <summary>エラーで機能が「一時停止中」と出ました</summary>
+      <div><p>フェイルソフト機能です。エラーが続いたモジュールだけを自動停止して、ゲーム全体と他の機能を守っています。設定画面の⚠から「再試行」できます。直らない場合は「詳細」からエラー内容をコピーして報告してもらえると助かります。</p></div>
+    </details>
+  </section>
+
+  <h2>既知の制限</h2>
+  <section class="faq">
+    <details>
+      <summary>自動植え直し・右クリック収穫が効かない作物があります</summary>
+      <div><p>バニラの作物ブロック系のみ対応です。ネザーウォート・カボチャ／スイカの茎は対象外です。</p></div>
+    </details>
+    <details>
+      <summary>インベントリ整理でチェストの中が整理されません</summary>
+      <div><p>現在は「GUIを閉じた状態で、メインインベントリ（ホットバー以外）のみ」が対象です。</p></div>
+    </details>
+    <details>
+      <summary>一括採土の対象ブロックを変えたい</summary>
+      <div><p>対象リストの編集は設定ファイルで行います（GUIは未対応です）。</p></div>
+    </details>
+    <details>
+      <summary>ネザーでガチマップが変です</summary>
+      <div><p>ネザーでは天井の地形を拾ってしまうため実用性が低いです（今後の対応候補です）。</p></div>
+    </details>
+    <details>
+      <summary>「建造物を探す」が連打できません</summary>
+      <div><p>建造物探索は負荷の大きい処理のため、30秒に1回のクールダウンを設けています。</p></div>
+    </details>
+  </section>
+
+  <h2>その他</h2>
+  <section class="faq">
+    <details>
+      <summary>今後のアップデート予定はありますか？</summary>
+      <div><p>まずは現6Modの公開と、フィードバックを受けた改善・バージョン追従が優先です。時間巻き戻しは<a href="mods/rewind.html">サタのまきもどし</a>として実装済みになりました。ほかのギミック系Mod（進化するモブ・モブ融合など）も構想段階のアイデアとしてあります。そちらは<strong>開発予定・未実装</strong>で、時期は未定です。</p></div>
+    </details>
+    <details>
+      <summary>紹介動画はありますか？</summary>
+      <div><p>YouTubeでの紹介動画を準備中です。公開後、各Modページに埋め込みます。</p></div>
+    </details>
+    <details>
+      <summary>バグ報告・要望はどこに送ればいいですか？</summary>
+      <div><p><a href="about.html">サイトについて</a>に記載の連絡先へお願いします。ストア公開後は各ストアのIssue/コメント欄でも受け付けます。</p></div>
+    </details>
+  </section>
+
+  <!-- ============================================================
+       [AD SLOT / AdSense] FAQ・本文末尾（フッター手前）
+       ============================================================ -->
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="statement">遊ぶ時間は、ぜんぶ<span class="glow">遊び</span>に使おう。</p>
+    <div class="foot-links">
+      <a href="index.html">トップ</a>
+      <a href="guide.html">導入ガイド</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">サイトについて</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </div>
+    <p class="legal">
+      © 2026 sata — SATA SERIESは個人制作のModです。<br>
+      NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.<br>
+      本サイトはMojang/Microsoftとは無関係の非公式サイトです。Minecraftは Mojang AB の商標です。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
