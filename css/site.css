@@ -1,7 +1,8 @@
 /* ============================================================
-   SATA SERIES 紹介サイト 共通スタイル
-   デザイン基準: さたの美意識 v2.0（§3 パレット / §11 レイアウト規律）
+   SATA SERIES 紹介サイト 共通スタイル（v2.0.0・3本構成）
+   デザイン基準: さたの美意識 v2.1（§3-4 UI面はソリッド / §11 レイアウト規律）
    - 全色・全フォントは :root トークン経由（§11-4）
+   - UIの面・ボタン・下線にグラデを使わない（§3-4）。深みは面の階調＋ヘアラインで
    - アニメは transform / opacity のみ（§11-5）
    ============================================================ */
 
@@ -12,15 +13,20 @@
   --pale-aqua: #DCEEFA;
   --sky-blue: #9FD6F2;
   --azure: #3A93D8;
+  --azure-deep: #2A76B4;
   --aqua-glow: #35E0C4;
-  --peach: #FFB27A;
   --ink: #1B2A3A;
   --ink-soft: #46586C;
-  /* ダーク面（フッター等） */
+  /* ダーク面（フッター） */
   --navy: #0C1D33;
-  --navy-surface: #16304F;
   --off-white: #EAF2F8;
   --bright-azure: #4EA8DE;
+  --muted-silver: #A9B6C6;
+
+  /* 各Modの色（アイコンと同じ・小さな印にだけ使う） */
+  --mod-benri: #45C486;
+  --mod-hud: #9575F5;
+  --mod-rewind: #4CC9F0;
 
   /* タイポ（§4: 明朝的見出し × 読みやすいゴシック本文） */
   --font-head: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "BIZ UDMincho", serif;
@@ -30,7 +36,6 @@
   --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
 
   /* z-index 段階（§11-8: 9999禁止） */
-  --z-nav: 10;
   --z-skip: 20;
 }
 
@@ -41,28 +46,14 @@ body {
   margin: 0;
   font-family: var(--font-body);
   color: var(--ink);
-  background:
-    radial-gradient(60rem 30rem at 85% -8rem, var(--pale-aqua), transparent 65%),
-    linear-gradient(175deg, var(--mist), var(--white) 55%, var(--mist));
-  background-attachment: fixed;
+  background: var(--mist);
   line-height: 1.9;
   font-size: 16px;
-  position: relative;
-}
-/* 粒状テクスチャ（§10-0-4） */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.05;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 img { max-width: 100%; height: auto; display: block; }
-a { color: var(--azure); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a { color: var(--azure-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { color: var(--ink); }
-a:focus-visible, button:focus-visible {
+a:focus-visible, button:focus-visible, summary:focus-visible {
   outline: 3px solid var(--azure);  /* §11-6: フォーカスは即時・outline */
   outline-offset: 2px;
   border-radius: 4px;
@@ -74,6 +65,14 @@ h1 { font-size: clamp(1.6rem, 5vw, 2.5rem); margin: 0 0 0.6em; overflow-wrap: an
 h2 { font-size: clamp(1.3rem, 3.4vw, 1.8rem); margin: 2.6em 0 0.8em; }
 h3 { font-size: clamp(1.05rem, 2.6vw, 1.25rem); margin: 2em 0 0.6em; }
 p { margin: 0 0 1.2em; max-width: 40em; }  /* §11-3: 行長 全角25〜40字 */
+code {
+  font-size: 0.88em;
+  background: var(--white);
+  border: 1px solid var(--pale-aqua);
+  border-radius: 4px;
+  padding: 0.05em 0.4em;
+  overflow-wrap: anywhere;
+}
 kbd {
   font-family: var(--font-body);
   font-size: 0.85em;
@@ -86,6 +85,7 @@ kbd {
   color: var(--ink);
 }
 table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.small { font-size: 0.88rem; color: var(--ink-soft); }
 
 .wrap { max-width: 62rem; margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2.5rem); }
 
@@ -110,7 +110,7 @@ table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
   color: var(--ink);
   text-decoration: none;
 }
-.masthead .brand .dot { color: var(--aqua-glow); }
+.masthead .brand .dot { color: var(--azure); }
 .masthead .tagline { font-size: 0.82rem; color: var(--ink-soft); letter-spacing: 0.05em; }
 .masthead nav {
   margin-top: 0.7rem;
@@ -120,19 +120,16 @@ table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
   font-size: 0.92rem;
 }
 .masthead nav a { text-decoration: none; color: var(--ink-soft); white-space: nowrap; }
-.masthead nav a:hover { color: var(--azure); }
+.masthead nav a:hover { color: var(--azure-deep); }
 .masthead nav a[aria-current="page"] {
   color: var(--ink);
   font-weight: 700;
-  border-bottom: 2px solid var(--aqua-glow);
+  border-bottom: 2px solid var(--azure);
 }
 
-/* ---- 見出しのグロー下線バー（§10-B 公式手段） ---- */
-.u-glow {
-  background-image: linear-gradient(90deg, var(--azure), var(--aqua-glow));
-  background-repeat: no-repeat;
-  background-size: 100% 0.28em;
-  background-position: 0 92%;
+/* ---- 見出しの強調（ソリッドの下線バー・§11-3） ---- */
+.u-bar {
+  box-shadow: inset 0 -0.26em 0 var(--sky-blue);
   padding-inline: 0.06em;
 }
 
@@ -145,24 +142,22 @@ table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
   padding-block: clamp(2.5rem, 7vw, 4.5rem) clamp(2rem, 5vw, 3.5rem);
 }
 .hero .lead { font-size: 1.05rem; color: var(--ink-soft); }
-.hero-art { position: relative; justify-self: center; }
-.hero-art .halo {
-  position: absolute; inset: -18%;
-  background: radial-gradient(closest-side, var(--white) 0%, rgba(255,255,255,0) 72%);
-  filter: blur(14px);
-  z-index: -1;
+/* 3本のアイコンを対角にずらして置く（静と動・§1-1） */
+.hero-icons {
+  position: relative;
+  justify-self: center;
+  width: clamp(200px, 26vw, 280px);
+  aspect-ratio: 1 / 1;
 }
-.hero-art img {
-  width: clamp(140px, 24vw, 230px);
-  border-radius: 22%;
-  transform: rotate(-4deg);
-  box-shadow: 0 18px 45px rgba(58, 147, 216, 0.28);
+.hero-icons img {
+  position: absolute;
+  width: 46%;
+  border-radius: 12%;
+  border: 1px solid var(--pale-aqua);
 }
-/* 四点スター（静と動の火花・§10-0-5） */
-.spark { position: absolute; width: 22px; height: 22px; }
-.spark svg { width: 100%; height: 100%; }
-.spark--tr { top: -8%; right: -14%; }
-.spark--bl { bottom: -4%; left: -16%; width: 15px; height: 15px; }
+.hero-icons img:nth-child(1) { left: 0; top: 4%; transform: rotate(-4deg); }
+.hero-icons img:nth-child(2) { left: 30%; top: 27%; width: 50%; }
+.hero-icons img:nth-child(3) { right: 0; bottom: 0; transform: rotate(4deg); }
 /* 入場演出は初回1回だけ（§11-5） */
 @media (prefers-reduced-motion: no-preference) {
   .hero > * { animation: rise 0.7s var(--ease-out) both; }
@@ -176,56 +171,44 @@ table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
 /* ---- 正直ステータス帯（公開準備中の告知） ---- */
 .notice {
   border: 1px solid var(--sky-blue);
-  background: linear-gradient(120deg, var(--white), var(--pale-aqua));
+  background: var(--white);
   border-radius: 12px;
   padding: 0.9rem 1.3rem;
   font-size: 0.92rem;
   max-width: none;
 }
-.notice strong { color: var(--azure); }
+.notice strong { color: var(--azure-deep); }
 
-/* ---- Modラインナップ（§11-1: 3等分カードグリッドを避ける）
-   主役1枚を大きく、残り4本は行リストで非対称に見せる ---- */
+/* ---- Modラインナップ（§11-1: カードグリッドにせず、台帳型の行で並べる） ---- */
 .lineup { margin-block: 2.5rem 3.5rem; }
-.lineup-featured {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 1.2rem 2rem;
-  align-items: center;
-  background:
-    radial-gradient(24rem 14rem at 100% 0%, rgba(53, 224, 196, 0.12), transparent 70%),
-    linear-gradient(150deg, var(--white), var(--pale-aqua));
-  border: 1px solid var(--pale-aqua);
-  border-radius: 18px;
-  padding: clamp(1.2rem, 4vw, 2.2rem);
-  box-shadow: 0 14px 40px rgba(58, 147, 216, 0.12);
-}
-.lineup-featured img { width: clamp(84px, 14vw, 132px); border-radius: 20%; }
-.lineup-featured h3 { margin: 0 0 0.3em; }
-.lineup-featured p { margin-bottom: 0.8em; }
-.lineup-rows { list-style: none; margin: 1.6rem 0 0; padding: 0; }
-.lineup-rows li {
+.lineup-rows { list-style: none; margin: 1.6rem 0 0; padding: 0; border-top: 1px solid var(--sky-blue); }
+.lineup-rows > li {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 1.1rem;
-  align-items: center;
-  padding: 0.95rem 0.4rem;
+  gap: 0.4rem 1.6rem;
+  align-items: start;
+  padding: 1.5rem 0.2rem;
   border-bottom: 1px solid var(--pale-aqua);
 }
-.lineup-rows img { width: 52px; border-radius: 22%; }
-.lineup-rows .name { font-family: var(--font-head); font-size: 1.06rem; }
-.lineup-rows .desc { color: var(--ink-soft); font-size: 0.9rem; display: block; }
-.lineup-rows a.more { white-space: nowrap; font-size: 0.9rem; }
+.lineup-rows img { width: clamp(64px, 11vw, 96px); border-radius: 14%; }
+.lineup-rows .name { font-family: var(--font-head); font-size: clamp(1.15rem, 3vw, 1.4rem); font-weight: 700; margin: 0; }
+.lineup-rows .en { font-size: 0.85rem; color: var(--ink-soft); letter-spacing: 0.06em; margin: 0 0 0.4em; }
+.lineup-rows .desc { color: var(--ink-soft); font-size: 0.95rem; margin: 0 0 0.5em; }
+.lineup-rows a.more { white-space: nowrap; font-size: 0.92rem; align-self: center; }
+.mod-mark { display: inline-block; width: 0.6em; height: 0.6em; margin-right: 0.45em; vertical-align: 0.1em; }
+.mod-mark--benri { background: var(--mod-benri); }
+.mod-mark--hud { background: var(--mod-hud); }
+.mod-mark--rewind { background: var(--mod-rewind); }
 
-/* ---- ボタン（§11-6: 5状態を実装） ---- */
+/* ---- ボタン（§11-6: 状態を実装・§3-4: ソリッド塗り） ---- */
 .btn {
   display: inline-block;
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--white);
-  background: linear-gradient(120deg, var(--azure), var(--aqua-glow));
-  border: none;
+  background: var(--azure-deep);
+  border: 1.5px solid var(--azure-deep);
   border-radius: 999px;
   padding: 0.65em 1.7em;
   text-decoration: none;
@@ -239,17 +222,18 @@ table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
   opacity: 0.55;
   cursor: not-allowed;
   transform: none;
-  background: var(--ink-soft);
 }
 .btn--ghost {
-  color: var(--azure);
+  color: var(--azure-deep);
   background: transparent;
-  border: 1.5px solid var(--sky-blue);
+  border-color: var(--sky-blue);
 }
-.btn--ghost:hover { color: var(--ink); transform: translateY(-2px); }
+.btn--ghost:hover { color: var(--ink); }
 
 /* ---- 記事・ドキュメント面 ---- */
 .doc { padding-block: 1.5rem 3rem; }
+.page-title { margin-top: 1.2em; }
+.page-title .sub { display: block; font-size: 0.6em; }
 .breadcrumb { font-size: 0.85rem; color: var(--ink-soft); margin-block: 1.2rem 0; }
 .breadcrumb a { color: var(--ink-soft); }
 .modhead {
@@ -259,8 +243,9 @@ table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
   align-items: center;
   margin-block: 1.4rem 0.6rem;
 }
-.modhead img { width: clamp(88px, 15vw, 128px); border-radius: 20%; box-shadow: 0 10px 30px rgba(58,147,216,0.22); }
-.modhead .en { color: var(--ink-soft); font-size: 0.95rem; letter-spacing: 0.06em; }
+.modhead img { width: clamp(88px, 15vw, 128px); border-radius: 14%; }
+.modhead h1 { margin-bottom: 0.2em; }
+.modhead .en { color: var(--ink-soft); font-size: 0.95rem; letter-spacing: 0.06em; margin-bottom: 0.4em; }
 .meta-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block: 0.8rem 0; padding: 0; list-style: none; font-size: 0.8rem; }
 .meta-chips li {
   background: var(--white);
@@ -290,7 +275,7 @@ table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
   white-space: nowrap;
   letter-spacing: 0.04em;
 }
-.tag--on  { background: var(--pale-aqua); color: var(--azure); border: 1px solid var(--sky-blue); }
+.tag--on  { background: var(--pale-aqua); color: var(--azure-deep); border: 1px solid var(--sky-blue); }
 .tag--off { background: var(--white); color: var(--ink-soft); border: 1px solid var(--pale-aqua); }
 .tag--key { background: var(--white); color: var(--ink); border: 1px solid var(--sky-blue); }
 
@@ -300,8 +285,6 @@ table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
   font-size: 0.92rem;
   background: var(--white);
   border: 1px solid var(--pale-aqua);
-  border-radius: 12px;
-  overflow: hidden;
 }
 .t th, .t td { text-align: left; padding: 0.6em 1em; border-bottom: 1px solid var(--pale-aqua); vertical-align: top; }
 .t tr:last-child > * { border-bottom: none; }
@@ -323,7 +306,7 @@ table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
   font-family: var(--font-head);
   font-size: 1.1rem;
   color: var(--white);
-  background: linear-gradient(140deg, var(--azure), var(--aqua-glow));
+  background: var(--azure-deep);
   border-radius: 50%;
 }
 .steps > li:not(:last-child)::after {
@@ -346,7 +329,7 @@ table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
   padding: 0.7rem 0.2rem;
   list-style-position: outside;
 }
-.faq summary:hover { color: var(--azure); }
+.faq summary:hover { color: var(--azure-deep); }
 .faq details > div { padding: 0 0.2rem 1rem; color: var(--ink-soft); }
 .faq details > div p { max-width: 44em; }
 
@@ -359,12 +342,11 @@ table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
   margin-block: 1.8rem;
 }
 .dl-box p { margin-bottom: 0.7em; max-width: none; }
-.dl-box .small { font-size: 0.85rem; color: var(--ink-soft); }
 
 /* ---- ステートメント型フッター（§11-2） ---- */
 .site-foot {
   margin-top: 4rem;
-  background: linear-gradient(160deg, var(--navy), var(--navy-surface));
+  background: var(--navy);
   color: var(--off-white);           /* §11-4: ダーク面の文字は明色 */
   padding-block: 2.6rem 1.6rem;
 }
@@ -374,21 +356,18 @@ table { border-collapse: collapse; font-variant-numeric: tabular-nums; }
   letter-spacing: 0.08em;
   margin: 0 0 1.2rem;
 }
-.site-foot .statement .glow { color: var(--aqua-glow); }
+.site-foot .statement .em { color: var(--aqua-glow); }
 .site-foot a { color: var(--bright-azure); }
 .site-foot a:hover { color: var(--off-white); }
 .site-foot .foot-links { display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; font-size: 0.85rem; margin-bottom: 1.4rem; }
 .site-foot .foot-links a { text-decoration: none; white-space: nowrap; }
-.site-foot .legal { font-size: 0.75rem; color: var(--sky-blue); line-height: 1.8; max-width: none; margin: 0; }
+.site-foot .legal { font-size: 0.75rem; color: var(--muted-silver); line-height: 1.8; max-width: none; margin: 0; }
 
 /* ---- レスポンシブ（§11-8） ---- */
 @media (max-width: 720px) {
   .hero { grid-template-columns: minmax(0, 1fr); }
-  .hero-art { order: -1; justify-self: start; }
-  .hero-art img { width: 110px; }
-  .lineup-featured { grid-template-columns: minmax(0, 1fr); }
-  .lineup-featured img { width: 76px; }
-  .lineup-rows li { grid-template-columns: auto minmax(0, 1fr); }
+  .hero-icons { order: -1; justify-self: start; width: 180px; }
+  .lineup-rows > li { grid-template-columns: auto minmax(0, 1fr); }
   .lineup-rows a.more { grid-column: 2; justify-self: start; }
   .modhead { grid-template-columns: minmax(0, 1fr); }
   .modhead img { width: 84px; }

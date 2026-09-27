@@ -31,7 +31,7 @@
 </header>
 
 <main id="main" class="doc wrap">
-  <h1 style="margin-top: 1.2em;">よくある質問</h1>
+  <h1 class="page-title">よくある質問</h1>
   <p>
     導入・対応環境・既知の制限をまとめました。
     ここに無い質問は<a href="about.html">サイトについて</a>の連絡先からどうぞ。
@@ -45,23 +45,23 @@
   <section class="faq">
     <details>
       <summary>どのバージョンで動きますか？</summary>
-      <div><p>Minecraft <strong>1.21.1（Java版）＋ NeoForge</strong> 向けです。Forge・Fabric・統合版（スマホ/Switch等）では動きません。</p></div>
+      <div><p>Minecraft <strong>1.21.1（Java版）＋ NeoForge 21.1.x</strong> 向けです。Forge・Fabric・統合版（スマホ/Switch等）では動きません。</p></div>
     </details>
     <details>
-      <summary>Sata Coreは必ず必要ですか？</summary>
-      <div><p>はい。道具箱・バトル・けんちく・配信の4Modはすべて <a href="mods/core.html">Sata Core</a> が前提です。core＋使いたいModだけの構成で動きます。</p></div>
+      <summary>前提Mod（SATA Core）は別に入れる必要がありますか？</summary>
+      <div><p>いいえ。共通基盤のSATA Coreは3本それぞれのjarに同梱しています。使いたいModのjarを<kbd>mods</kbd>フォルダに入れるだけで動きます。複数入れても、SATA Coreは1つだけ読み込まれます。</p></div>
     </details>
     <details>
       <summary>ダウンロードはどこからできますか？</summary>
-      <div><p>現在 Modrinth / CurseForge での公開準備中です。公開でき次第、各Modページにリンクを掲載します。それまでは配布していません。</p></div>
+      <div><p>現在 CurseForge での公開準備中です。公開でき次第、各Modページにリンクを掲載します。それまでは配布していません。</p></div>
     </details>
     <details>
       <summary>マルチプレイ（サーバー）でも使えますか？</summary>
-      <div><p>クライアント＆サーバー両対応を前提に作っています。マルチでは<strong>設定の正はサーバー側</strong>で、有効モジュールがサーバーと同期されます（表示系の見た目はクライアント側でも調整できます）。</p></div>
+      <div><p>使えます。サーバーとクライアントの両方に入れてください。マルチでは<strong>ON/OFFと動作の設定はサーバー側</strong>のものが使われます（文字の大きさなど表示の調整は各自で可）。SATA Rewindの巻き戻しは、マルチでは既定でOPのプレイヤーだけが使えます。</p></div>
     </details>
     <details>
       <summary>Modパックに入れてもいいですか？</summary>
-      <div><p>はい。全Mod <strong>MITライセンス</strong>なので、Modパックへの収録・再配布ができます。</p></div>
+      <div><p>はい。3本とも <strong>MITライセンス</strong>なので、Modパックへの収録・再配布ができます。</p></div>
     </details>
     <details>
       <summary>NeoForgeのインストーラーがダブルクリックで開きません</summary>
@@ -73,17 +73,25 @@
   <section class="faq">
     <details>
       <summary>使わない機能が動いて重くなりませんか？</summary>
-      <div><p>OFFにしたモジュールは処理自体が動かない設計です。既定でも、ゲームバランスに影響が大きい機能（HP増加・アイテム吸引など）はOFFになっています。</p></div>
+      <div><p>OFFにしたモジュールは処理自体が動かない設計です。既定でも、アイテム吸引や自動松明など好みが分かれる機能はOFFになっています。</p></div>
     </details>
     <details>
       <summary>一括破壊がサバイバルで強すぎませんか？</summary>
       <div><p>既定で「スニーク中のみ発動」「ツール耐久を消費」「満腹度を消費」「ツール保護（残り耐久1で停止）」がONになっており、バランスを崩しにくい設定から始まります。物足りなければBキーの設定画面で緩められます。</p></div>
     </details>
     <details>
+      <summary>一括破壊で、保護された土地のブロックまで壊れませんか？</summary>
+      <div><p>壊れません。連鎖するブロックも1個ずつ手で壊したときと同じ処理を通すので、土地保護Modやスポーン保護で守られた場所では止まります。</p></div>
+    </details>
+    <details>
       <summary>キー操作は何がありますか？</summary>
       <div>
-        <p><kbd>B</kbd>＝統一設定画面（core）／<kbd>M</kbd>＝アイテム吸引の切替（道具箱）／<kbd>G</kbd>＝インベントリ整理（道具箱）／<kbd>J</kbd>＝ガチマップ（配信サポート）。いずれもMinecraftの設定画面から変更できます。</p>
+        <p><kbd>B</kbd>＝統一設定画面（3本共通）／<kbd>M</kbd>＝アイテム吸引の切替（SATA 便利）／<kbd>G</kbd>＝インベントリ整理（SATA 便利）／<kbd>H</kbd>＝巻き戻し（SATA Rewind）。いずれもMinecraftの設定画面から変更できます。</p>
       </div>
+    </details>
+    <details>
+      <summary>地図（マップ）の機能はありますか？</summary>
+      <div><p>ありません。地図は専門の地図Mod（JourneyMap など）と組み合わせて使ってください。SATA SERIESは地図Modと役割が重ならないようにしています。</p></div>
     </details>
     <details>
       <summary>設定を友だちと同じにしたい</summary>
@@ -91,11 +99,11 @@
     </details>
     <details>
       <summary>ゲーム内の表示言語を変えられますか？</summary>
-      <div><p>日本語・English・简体中文・한국어・Español・Português の6言語に対応しています。Minecraft本体の言語に自動追従するほか、設定画面の言語だけ個別に固定できます。</p></div>
+      <div><p>日本語・English・简体中文・한국어・Español・Português の6言語に対応しています。Minecraft本体の言語に自動で合わせるほか、設定画面の言語だけ個別に固定できます。</p></div>
     </details>
     <details>
-      <summary>エラーで機能が「一時停止中」と出ました</summary>
-      <div><p>フェイルソフト機能です。エラーが続いたモジュールだけを自動停止して、ゲーム全体と他の機能を守っています。設定画面の⚠から「再試行」できます。直らない場合は「詳細」からエラー内容をコピーして報告してもらえると助かります。</p></div>
+      <summary>エラーでモジュールが止まったと表示されました</summary>
+      <div><p>フェイルソフト機能です。エラーが3回続いたモジュールだけを自動停止して、ゲーム全体と他の機能を守っています。設定画面の⚠から「再試行」できます。直らない場合は「詳細」からエラー内容をコピーして報告してもらえると助かります。</p></div>
     </details>
   </section>
 
@@ -111,15 +119,11 @@
     </details>
     <details>
       <summary>一括採土の対象ブロックを変えたい</summary>
-      <div><p>対象リストの編集は設定ファイルで行います（GUIは未対応です）。</p></div>
+      <div><p>対象リストの編集は設定ファイル（<code>config/benrisuite-common.toml</code>）で行います（GUIは未対応です）。</p></div>
     </details>
     <details>
-      <summary>ネザーでガチマップが変です</summary>
-      <div><p>ネザーでは天井の地形を拾ってしまうため実用性が低いです（今後の対応候補です）。</p></div>
-    </details>
-    <details>
-      <summary>「建造物を探す」が連打できません</summary>
-      <div><p>建造物探索は負荷の大きい処理のため、30秒に1回のクールダウンを設けています。</p></div>
+      <summary>巻き戻しで元に戻らないものがあります</summary>
+      <div><p>SATA Rewindが戻すのは、記録範囲の中の「自分が変えたブロック」「自分の状態」「周囲の生きているモブ」です。ほかのプレイヤーや、ほかの人が変えたブロック、倒されたモブの復活は対象外です。一覧は<a href="mods/rewind.html">SATA Rewindのページ</a>にあります。</p></div>
     </details>
   </section>
 
@@ -127,7 +131,7 @@
   <section class="faq">
     <details>
       <summary>今後のアップデート予定はありますか？</summary>
-      <div><p>まずは現6Modの公開と、フィードバックを受けた改善・バージョン追従が優先です。時間巻き戻しは<a href="mods/rewind.html">サタのまきもどし</a>として実装済みになりました。ほかのギミック系Mod（進化するモブ・モブ融合など）も構想段階のアイデアとしてあります。そちらは<strong>開発予定・未実装</strong>で、時期は未定です。</p></div>
+      <div><p>まずは今の3本の公開と、フィードバックを受けた改善・バージョン追従が優先です。ほかのギミック系Mod（進化するモブ・モブ融合など）は構想段階のアイデアとしてあります。そちらは<strong>開発予定・未実装</strong>で、時期は未定です。</p></div>
     </details>
     <details>
       <summary>紹介動画はありますか？</summary>
@@ -135,7 +139,7 @@
     </details>
     <details>
       <summary>バグ報告・要望はどこに送ればいいですか？</summary>
-      <div><p><a href="about.html">サイトについて</a>に記載の連絡先へお願いします。ストア公開後は各ストアのIssue/コメント欄でも受け付けます。</p></div>
+      <div><p><a href="about.html">サイトについて</a>に記載の連絡先へお願いします。CurseForgeでの公開後は、各プロジェクトのコメント欄でも受け付ける予定です。</p></div>
     </details>
   </section>
 
@@ -146,7 +150,7 @@
 
 <footer class="site-foot">
   <div class="wrap">
-    <p class="statement">遊ぶ時間は、ぜんぶ<span class="glow">遊び</span>に使おう。</p>
+    <p class="statement">遊ぶ時間は、ぜんぶ<span class="em">遊び</span>に使おう。</p>
     <div class="foot-links">
       <a href="index.html">トップ</a>
       <a href="guide.html">導入ガイド</a>

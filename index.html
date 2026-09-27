@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SATA SERIES — Minecraft 1.21.1 (NeoForge) 便利Modシリーズ</title>
-<meta name="description" content="木こり・一括採掘からミニマップ、時間巻き戻しまで。Minecraft 1.21.1（NeoForge）向けの実用Mod 6本・26モジュールを、Bキーひとつの統一設定画面で。SATA SERIES 公式紹介サイト。">
+<meta name="description" content="一括伐採・一括採掘などの便利機能、配信向けHUD、時間巻き戻し。Minecraft 1.21.1（NeoForge）向けのMod 3本（全21モジュール）を、それぞれjar 1本で。Bキーの共通設定画面で機能ごとにON/OFF。SATA SERIES 公式紹介サイト。">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="css/site.css">
 <link rel="canonical" href="https://sata-series.sata-app.workers.dev/">
 <meta property="og:url" content="https://sata-series.sata-app.workers.dev/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="SATA SERIES — Minecraft 1.21.1 便利Modシリーズ">
-<meta property="og:description" content="6Mod・26モジュールをBキーの統一設定画面で。NeoForge 1.21.1対応。">
+<meta property="og:description" content="便利・配信HUD・巻き戻しのMod 3本（全21モジュール）。jar 1本ずつ、Bキーの共通設定画面で。NeoForge 1.21.1対応。">
 <meta property="og:image" content="https://sata-series.sata-app.workers.dev/assets/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -35,30 +35,29 @@
 
   <section class="hero wrap">
     <div>
-      <h1>欲しい機能だけ入れて、<br>あとは<span class="u-glow">Bキー</span>におまかせ。</h1>
+      <h1>欲しいModだけ入れて、<br>あとは<span class="u-bar">Bキー</span>で調整。</h1>
       <p class="lead">
-        SATA SERIESは、Minecraft 1.21.1（NeoForge）向けの実用Mod 6本セット。
-        木こり・一括採掘からミニマップ、時間巻き戻しまで全26モジュールを、
-        ゲーム内の共通設定画面（Bキー）でひとつずつON/OFFできます。
-        OFFにしたモジュールは処理が動かない設計です。
+        SATA SERIESは、Minecraft 1.21.1（NeoForge）向けのMod 3本です。
+        一括破壊などの便利機能、配信向けのHUD、時間の巻き戻し。
+        どれもjar 1本で完結し、ゲーム内の共通設定画面（<kbd>B</kbd>キー）で
+        機能（モジュール）ごとにON/OFFできます。OFFのモジュールは処理が動きません。
       </p>
       <p>
-        <a class="btn" href="#mods">6つのModを見る</a>
+        <a class="btn" href="#mods">3つのModを見る</a>
         <a class="btn btn--ghost" href="guide.html">導入ガイド</a>
       </p>
     </div>
-    <div class="hero-art" aria-hidden="true">
-      <span class="halo"></span>
-      <img src="assets/icon_toolbox.png" alt="" width="400" height="400">
-      <span class="spark spark--tr"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4Z" fill="#35E0C4"/></svg></span>
-      <span class="spark spark--bl"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0l2.4 9.6L24 12l-9.6 2.4L12 24l-2.4-9.6L0 12l9.6-2.4Z" fill="#FFB27A"/></svg></span>
+    <div class="hero-icons" aria-hidden="true">
+      <img src="assets/icon_benri.png" alt="" width="400" height="400">
+      <img src="assets/icon_hud.png" alt="" width="400" height="400">
+      <img src="assets/icon_rewind.png" alt="" width="400" height="400">
     </div>
   </section>
 
   <div class="wrap">
     <p class="notice">
       <strong>公開準備中:</strong>
-      現在 Modrinth / CurseForge での公開手続きを進めています。
+      現在 CurseForge での公開手続きを進めています。
       ダウンロードリンクは公開でき次第、このサイトに掲載します。
       いま掲載しているのは機能紹介のみです。
     </p>
@@ -71,104 +70,96 @@
        ============================================================ -->
 
   <section id="mods" class="lineup wrap">
-    <h2>6つのMod</h2>
+    <h2>3つのMod</h2>
     <p>
-      共通基盤の <a href="mods/core.html">Sata Core</a> ＋ 目的別の5Mod。
-      「core＋欲しいModだけ」の組み合わせで動きます。ぜんぶ入れてもOK。
+      入れたいものだけを<kbd>mods</kbd>フォルダへ。共通基盤（SATA Core）は各jarに同梱しているので、
+      前提Modを別に入れる必要はありません。3本ぜんぶ入れても、共通基盤は1つだけ読み込まれます。
     </p>
-
-    <article class="lineup-featured">
-      <img src="assets/icon_toolbox.png" alt="Sata Toolboxのアイコン" width="400" height="400">
-      <div>
-        <h3>サタのべんり道具箱 <span style="font-family: var(--font-body); font-size: 0.8em; color: var(--ink-soft);">Sata Toolbox</span></h3>
-        <p>
-          シリーズの主役。一括伐採・一括採掘・一括採土の「一括破壊3兄弟」に、
-          葉の高速消滅・自動植え直し・右クリック収穫・アイテム吸引・
-          インベントリ整理・自動松明・経験値オーブ統合を加えた便利系10モジュール。
-        </p>
-        <a class="btn btn--ghost" href="mods/toolbox.html">機能とキー操作を見る</a>
-      </div>
-    </article>
 
     <ul class="lineup-rows">
       <li>
-        <img src="assets/icon_core.png" alt="" width="400" height="400">
+        <img src="assets/icon_benri.png" alt="SATA 便利のアイコン" width="400" height="400">
         <div>
-          <span class="name">Sata Core（サタコア）</span>
-          <span class="desc">共通基盤。Bキーの統一設定画面・テーマ5種・6言語・おすすめ設定/保存セット・設定共有。全Modの前提Mod。</span>
+          <h3 class="name"><span class="mod-mark mod-mark--benri" aria-hidden="true"></span>SATA 便利</h3>
+          <p class="en">SATA Benri — 便利機能 11モジュール</p>
+          <p class="desc">
+            一括伐採・一括採掘・一括採土の「一括破壊」に、葉の高速消滅・自動植え直し・右クリック収穫・
+            アイテム吸引・インベントリ整理・自動松明・リーチ延長・湧きつぶしチェッカー。
+            一括破壊は1ブロックずつ通常の破壊処理を通すので、土地保護Modで守られた場所は壊しません。
+          </p>
         </div>
-        <a class="more" href="mods/core.html">詳しく</a>
+        <a class="more" href="mods/benri.html">機能とキー操作</a>
       </li>
       <li>
-        <img src="assets/icon_battle.png" alt="" width="400" height="400">
+        <img src="assets/icon_hud.png" alt="SATA 配信HUDのアイコン" width="400" height="400">
         <div>
-          <span class="name">サタのバトルサポート（Sata Battle Support）</span>
-          <span class="desc">ダメージ数字・モブHP表示・低HP警告・HP増加（任意）の戦闘系4モジュール。</span>
+          <h3 class="name"><span class="mod-mark mod-mark--hud" aria-hidden="true"></span>SATA 配信HUD</h3>
+          <p class="en">SATA Stream HUD — 画面表示 6モジュール</p>
+          <p class="desc">
+            プレイ時間・死亡数・移動距離のセッション統計、死亡地点マーカー、モンスター接近警告、
+            ダメージ数値、モブのHP表示、低HP警告（画面の縁が赤く脈打つ）。配信や録画で「いま何が起きたか」を見せやすくします。
+          </p>
         </div>
-        <a class="more" href="mods/battle.html">詳しく</a>
+        <a class="more" href="mods/hud.html">表示と設定</a>
       </li>
       <li>
-        <img src="assets/icon_build.png" alt="" width="400" height="400">
+        <img src="assets/icon_rewind.png" alt="SATA Rewindのアイコン" width="400" height="400">
         <div>
-          <span class="name">サタのけんちくヘルパー（Sata Build Helper）</span>
-          <span class="desc">リーチ延長・湧きつぶしチェッカー・ファントム対策。建築勢のための3点セット。</span>
+          <h3 class="name"><span class="mod-mark mod-mark--rewind" aria-hidden="true"></span>SATA Rewind</h3>
+          <p class="en">SATA Rewind（まきもどし）— 時間巻き戻し 4モジュール</p>
+          <p class="desc">
+            <kbd>H</kbd>キーで数秒前へ、逆再生のアニメーションで巻き戻します。
+            死んだ瞬間に数秒前へ戻る「死亡時自動巻き戻し」も選べます（既定OFF）。シングルプレイ向けです。
+          </p>
         </div>
-        <a class="more" href="mods/build.html">詳しく</a>
-      </li>
-      <li>
-        <img src="assets/icon_stream.png" alt="" width="400" height="400">
-        <div>
-          <span class="name">サタの配信サポート（Sata Stream Support）</span>
-          <span class="desc">ミニマップ／ガチマップ・統計HUD・死亡地点マーカー・接近警告の配信向け5モジュール。</span>
-        </div>
-        <a class="more" href="mods/stream.html">詳しく</a>
-      </li>
-      <li>
-        <img src="assets/icon_rewind.svg" alt="" width="400" height="400">
-        <div>
-          <span class="name">サタのまきもどし（Sata Rewind）</span>
-          <span class="desc">Hキーで数秒前へ逆再生巻き戻し。死亡キャンセル（任意）も。時間巻き戻し4モジュール。</span>
-        </div>
-        <a class="more" href="mods/rewind.html">詳しく</a>
+        <a class="more" href="mods/rewind.html">戻るもの・戻らないもの</a>
       </li>
     </ul>
   </section>
 
   <section class="wrap">
-    <h2>シリーズ共通のしくみ</h2>
+    <h2>3本に共通のしくみ</h2>
     <div class="t-scroll">
       <table class="t">
         <tr>
+          <th>jar 1本で完結</th>
+          <td>共通基盤のSATA Coreを各jarに同梱しています（NeoForgeのJar-in-Jar）。複数入れても、読み込まれるのは最も新しい1つだけです。</td>
+        </tr>
+        <tr>
           <th>統一設定画面</th>
-          <td>ゲーム内で<kbd>B</kbd>キーを押すと、入っているSata Modが全部1画面に並びます。Modごとにタブが分かれ、モジュール単位でON/OFF・詳細設定ができます。</td>
+          <td>ゲーム内で<kbd>B</kbd>キーを押すと、入っているSATAのModが1画面に並びます。Modごとにタブが分かれ、モジュール単位でON/OFF・詳細設定ができます。ON/OFFに再起動は要りません。</td>
         </tr>
         <tr>
           <th>テーマ5種</th>
-          <td>設定画面の見た目を「シネマ（既定）／クール／サイバー／かわいい／サクラ」から選べます。</td>
+          <td>設定画面の見た目を「シネマ（既定）／クール／サイバー／かわいい／サクラ」から選べます。コンパクト表示の切替つき。</td>
         </tr>
         <tr>
           <th>6言語対応</th>
-          <td>日本語・English・简体中文・한국어・Español・Português。設定画面の言語だけ個別に切り替えることもできます。</td>
+          <td>日本語・English・简体中文・한국어・Español・Português。Minecraft本体の言語に合わせるほか、設定画面の言語だけ個別に切り替えることもできます。</td>
         </tr>
         <tr>
           <th>クイック設定</th>
-          <td>「★おすすめ設定」「全部ON」「全部OFF」のワンクリック切替＋名前を付けて保存できるセット3つを、1行のバーにまとめています。Shift+クリックで全Modへ一括適用。</td>
+          <td>「★おすすめ」「全部ON」「全部OFF」のワンクリック切替と、名前を付けて保存できるセット3つ。Shift+クリックで入っている全Modへまとめて適用できます。</td>
         </tr>
         <tr>
           <th>モジュール検索</th>
-          <td>設定画面上部の検索バーで、目的のモジュールを名前からすぐ探せます。タブにはONの数（例 8/12）が出ます。</td>
+          <td>設定画面上部の検索バーで、モジュールを名前から探せます。タブにはONになっているモジュールの数が出ます。</td>
         </tr>
         <tr>
           <th>設定の共有</th>
-          <td>設定一式をクリップボードに書き出し／読み込みできます。動画で紹介した設定をそのまま渡す、といった使い方ができます（不正なデータは適用されません）。</td>
+          <td>設定一式をクリップボードに書き出し／読み込みできます。不正なデータは何も変更せずにはじきます。</td>
         </tr>
         <tr>
           <th>フェイルソフト</th>
-          <td>あるモジュールでエラーが続いた場合、そのモジュールだけを自動停止して他の機能を守ります。設定画面に⚠が出て、再試行・詳細確認ができます。</td>
+          <td>あるモジュールでエラーが3回続くと、そのモジュールだけを止めて他の機能とゲームを守ります。設定画面に⚠が出て、再試行・エラー内容のコピーができます。</td>
+        </tr>
+        <tr>
+          <th>マルチプレイ</th>
+          <td>サーバーとクライアントの両方に入れて使います。ON/OFFと動作の設定はサーバー側のものが使われます（文字の大きさなど表示の調整は各自で可）。</td>
         </tr>
         <tr>
           <th>ライセンス</th>
-          <td>全Mod MITライセンス。Modパックへの収録も可能です。</td>
+          <td>3本ともMITライセンス。Modパックへの収録も可能です。</td>
         </tr>
       </table>
     </div>
@@ -179,7 +170,7 @@
     <p>
       Modを入れるのが初めてでも、必要なのは
       「NeoForgeを入れる → modsフォルダにjarを置く」の2ステップだけです。
-      画面つきで順番に説明しています。
+      順番に説明しています。
     </p>
     <p><a class="btn" href="guide.html">導入ガイドを読む</a></p>
   </section>
@@ -192,7 +183,7 @@
 
 <footer class="site-foot">
   <div class="wrap">
-    <p class="statement">遊ぶ時間は、ぜんぶ<span class="glow">遊び</span>に使おう。</p>
+    <p class="statement">遊ぶ時間は、ぜんぶ<span class="em">遊び</span>に使おう。</p>
     <div class="foot-links">
       <a href="index.html">トップ</a>
       <a href="guide.html">導入ガイド</a>

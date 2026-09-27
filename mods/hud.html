@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SATA 配信HUD（SATA Stream HUD）— 画面表示6モジュール | SATA SERIES</title>
+<meta name="description" content="セッション統計・死亡地点マーカー・モンスター接近警告・ダメージ数値・モブHP表示・低HP警告。Minecraft 1.21.1（NeoForge）向けの配信・録画向けHUD 6モジュールの機能と設定を解説。">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="canonical" href="https://sata-series.sata-app.workers.dev/mods/hud">
+<meta property="og:url" content="https://sata-series.sata-app.workers.dev/mods/hud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SATA 配信HUD（SATA Stream HUD）— 画面表示6モジュール">
+<meta property="og:description" content="統計・死亡地点・接近警告・ダメージ数値・モブHP・低HP警告。Minecraft 1.21.1 / NeoForge対応。">
+<meta property="og:image" content="https://sata-series.sata-app.workers.dev/assets/ogp.png">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="masthead wrap">
+  <div class="brandline">
+    <a class="brand" href="../index.html">SATA SERIES<span class="dot">.</span></a>
+    <span class="tagline">Minecraft 1.21.1 / NeoForge の便利Modシリーズ</span>
+  </div>
+  <nav aria-label="サイト内">
+    <a href="../index.html">トップ</a>
+    <a href="../guide.html">導入ガイド</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="../about.html">サイトについて</a>
+  </nav>
+</header>
+
+<main id="main" class="doc wrap">
+  <p class="breadcrumb"><a href="../index.html">トップ</a> › <a href="../index.html#mods">Mod一覧</a> › SATA 配信HUD</p>
+
+  <header class="modhead">
+    <img src="../assets/icon_hud.png" alt="SATA 配信HUDのアイコン" width="400" height="400">
+    <div>
+      <h1>SATA 配信HUD</h1>
+      <p class="en">SATA Stream HUD — 画面表示 6モジュール</p>
+      <ul class="meta-chips">
+        <li>Minecraft 1.21.1</li>
+        <li>NeoForge 21.1.x</li>
+        <li>v2.0.0</li>
+        <li>前提Mod: なし（SATA Core 同梱）</li>
+        <li>modid: satastream</li>
+        <li>MITライセンス</li>
+      </ul>
+    </div>
+  </header>
+
+  <p>
+    配信や録画で「いま何が起きたか」を画面に出すためのHUDです。
+    プレイの記録（時間・死亡数・移動距離）、危険の知らせ（接近警告・低HP警告）、
+    戦闘の見える化（ダメージ数値・モブのHP）を6つのモジュールに分けています。
+    6つとも既定でONなので、要らないものだけ<kbd>B</kbd>キーの設定画面でOFFにしてください。
+  </p>
+
+  <!-- [VIDEO EMBED PLACEHOLDER] 紹介動画をYouTubeに公開後、この位置にiframe埋め込みを挿入 -->
+
+  <div class="dl-box">
+    <p><strong>ダウンロード（準備中）</strong></p>
+    <p>CurseForge での公開準備中です。公開後、ここにダウンロードボタンを設置します。</p>
+    <!-- [DL LINK PLACEHOLDER] 公開後に差し替え:
+         <a class="btn" href="https://www.curseforge.com/minecraft/mc-mods/XXXX">CurseForgeでダウンロード</a> -->
+    <p class="small">配布ファイル: <code>sata-hud-neoforge-1.21.1-2.0.0.jar</code>（これ1本で動きます）。マルチではサーバーとクライアントの両方に入れてください。</p>
+  </div>
+
+  <!-- ============================================================
+       [AD SLOT / AdSense] Modページ・リード文直下（本文開始前）
+       ============================================================ -->
+
+  <h2>モジュール一覧（6）</h2>
+  <ul class="modules">
+    <li>
+      <div class="mod-line"><span class="mod-name">セッション統計HUD（SessionHud）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">画面右上に、今回のプレイ時間・死亡数・移動距離を表示します。項目ごとに表示のON/OFFができます。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">死亡地点マーカー（DeathPoint）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">死んだ座標をチャットに表示し、ワールド内のその場所に☠のマーカーを出します。近づくと消えます。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">モンスター接近警告（MonsterAlert）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">敵対モブが近く（既定8ブロック・4〜24で調整）にいると、画面下に⚠を出します。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">ダメージ数値（DamagePopup）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">与えたダメージ・受けたダメージを、浮かぶ数字で表示します。文字の大きさと表示時間を調整できます。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">モブHP表示（MobHealthBar）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">近くのモブの頭上に残りHPを表示します。既定は「ダメージを受けたモブ」「見えているモブ」だけ。範囲内すべてを表示する切替もあります。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">低HP警告（LowHpAlert）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">HPがしきい値（既定は最大HPの30%）を下回ると、画面の縁が赤く脈打ちます。</p>
+    </li>
+  </ul>
+
+  <h2>おもな設定項目</h2>
+  <div class="t-scroll">
+    <table class="t">
+      <tr><th>統計HUDの表示項目</th><td>プレイ時間・死亡数・移動距離を個別にON/OFF（既定はすべて表示）。</td></tr>
+      <tr><th>接近警告の距離</th><td>既定8ブロック（4〜24）。</td></tr>
+      <tr><th>ダメージ数値の大きさ／表示時間</th><td>大きさ 既定100%（50〜300%）。表示時間 既定30tick＝1.5秒（10〜100tick）。</td></tr>
+      <tr><th>モブHPの表示範囲</th><td>既定24ブロック（8〜64）。「ダメージを受けたモブだけ」「見えているモブだけ」はそれぞれ既定ON。</td></tr>
+      <tr><th>低HP警告のしきい値</th><td>最大HPに対する割合。既定30%（5〜80%）。</td></tr>
+    </table>
+  </div>
+  <p>
+    設定はゲーム内の<kbd>B</kbd>キー（統一設定画面の「SATA 配信HUD」タブ）から変更できます。
+    設定ファイルは <code>config/satastream-common.toml</code>。
+  </p>
+
+  <h2>マルチプレイでの動き</h2>
+  <ul>
+    <li>表示はすべて各プレイヤーの画面側で描きます。どのモジュールをONにするかはサーバーの設定に従います（例: 壁の向こうのモブのHP表示を、サーバー側で止められます）。</li>
+    <li>ダメージ数値だけは、サーバーがダメージを検知して、そのモブを見ているプレイヤーへ送ります。</li>
+    <li>文字の大きさや表示時間などの見た目は、各プレイヤーが自分で調整できます。</li>
+  </ul>
+
+  <h2>キー操作</h2>
+  <div class="t-scroll">
+    <table class="t">
+      <tr><th><kbd>B</kbd></th><td>統一設定画面を開く（3本共通）。このModに専用のキーはありません。</td></tr>
+    </table>
+  </div>
+
+  <h2>ほかのSATA Mod</h2>
+  <p>
+    <a href="benri.html">SATA 便利</a> ／
+    <a href="rewind.html">SATA Rewind</a>
+  </p>
+
+  <!-- ============================================================
+       [AD SLOT / AdSense] Modページ・本文末尾（フッター手前）
+       ============================================================ -->
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="statement">遊ぶ時間は、ぜんぶ<span class="em">遊び</span>に使おう。</p>
+    <div class="foot-links">
+      <a href="../index.html">トップ</a>
+      <a href="../guide.html">導入ガイド</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../about.html">サイトについて</a>
+      <a href="../privacy.html">プライバシーポリシー</a>
+    </div>
+    <p class="legal">
+      © 2026 sata — SATA SERIESは個人制作のModです。<br>
+      NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.<br>
+      本サイトはMojang/Microsoftとは無関係の非公式サイトです。Minecraftは Mojang AB の商標です。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

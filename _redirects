@@ -1,0 +1,11 @@
+# v2.0.0（6本→3本）で統合したModページの旧URL → 新URL（Cloudflare の _redirects 形式）
+/mods/toolbox       /mods/benri   301
+/mods/toolbox.html  /mods/benri   301
+/mods/build         /mods/benri   301
+/mods/build.html    /mods/benri   301
+/mods/battle        /mods/hud     301
+/mods/battle.html   /mods/hud     301
+/mods/stream        /mods/hud     301
+/mods/stream.html   /mods/hud     301
+/mods/core          /             301
+/mods/core.html     /             301

@@ -31,7 +31,7 @@
 </header>
 
 <main id="main" class="doc wrap">
-  <h1 style="margin-top: 1.2em;">導入ガイド<br><span style="font-size: 0.6em;">NeoForge 1.21.1 と SATAシリーズの入れ方</span></h1>
+  <h1 class="page-title">導入ガイド<span class="sub">NeoForge 1.21.1 と SATAシリーズの入れ方</span></h1>
   <p>
     Modを入れるのが初めての人向けに、ゼロから起動確認までを説明します。
     必要なのは Java版Minecraft（1.21.1）だけ。追加ソフトの購入などは一切ありません。
@@ -39,7 +39,7 @@
 
   <p class="notice">
     <strong>先におことわり:</strong>
-    SATAシリーズのjarファイルは現在 Modrinth / CurseForge で公開準備中です。
+    SATAシリーズのjarファイルは現在 CurseForge で公開準備中です。
     公開後、このページと各Modページにダウンロードリンクを掲載します。
     手順自体は他のNeoForge Modでも同じなので、先に読んでおけます。
   </p>
@@ -61,7 +61,7 @@
       <h3>NeoForgeのインストーラーを入手する</h3>
       <p>
         NeoForge公式サイト（<a href="https://neoforged.net/" rel="external">neoforged.net</a>）から、
-        <strong>Minecraft 1.21.1向け</strong>のインストーラー（installer.jar）をダウンロードします。
+        <strong>Minecraft 1.21.1向け（21.1.x）</strong>のインストーラー（installer.jar）をダウンロードします。
         バージョン選択で「1.21.1」を選ぶのを忘れずに。
       </p>
     </li>
@@ -72,7 +72,7 @@
         「Install client」を選んだまま「Proceed」を押します。
         数十秒でインストールが終わり、ランチャーに「NeoForge」のプロファイルが追加されます。
       </p>
-      <p style="font-size: 0.88rem; color: var(--ink-soft);">
+      <p class="small">
         ダブルクリックで開かない場合はJavaの関連付けの問題です。FAQの「インストーラーが開かない」を見てください。
       </p>
     </li>
@@ -83,40 +83,48 @@
         （modsフォルダが無い場合は、NeoForgeを一度起動すると作られます。自分で新規作成してもOK）
       </p>
       <p>
-        ここに <strong>Sata Core のjar＋使いたいSata Modのjar</strong> を入れます。
-        Sata Coreは全Mod共通の前提なので必ず入れてください。
+        ここに<strong>使いたいSATA Modのjar</strong>を入れます。1本だけでも、3本ぜんぶでもかまいません。
+        共通基盤（SATA Core）は各jarに入っているので、ほかに入れるものはありません。
       </p>
     </li>
     <li>
       <h3>NeoForgeプロファイルで起動する</h3>
       <p>
         ランチャーで起動構成「NeoForge」を選んで起動します。
-        タイトル画面の「Mod」ボタンの一覧に、入れたSata Modが表示されていれば成功です。
+        タイトル画面の「Mod」ボタンの一覧に、入れたSATA Modが表示されていれば成功です。
       </p>
     </li>
     <li>
       <h3>ゲーム内で<kbd>B</kbd>キーを押す</h3>
       <p>
-        ワールドに入って<kbd>B</kbd>キーを押すと、サタシリーズの統一設定画面が開きます。
+        ワールドに入って<kbd>B</kbd>キーを押すと、SATAシリーズの統一設定画面が開きます。
         ここで各モジュールのON/OFFと詳細設定ができます。設定はここで完結、
         設定ファイルを直接さわる必要は基本ありません。
       </p>
     </li>
   </ol>
 
+  <h2>マルチプレイで使うとき</h2>
+  <p>
+    サーバーとクライアント（遊ぶ人全員）の両方に、同じjarを入れてください。
+    ON/OFFと動作の設定はサーバー側のものが使われます。
+    SATA Rewindの巻き戻しは、マルチでは既定でOPのプレイヤーだけが使えます
+    （詳しくは<a href="mods/rewind.html">SATA Rewindのページ</a>）。
+  </p>
+
   <h2>うまくいかないとき</h2>
   <ul>
     <li>クラッシュする・起動しない → <strong>Minecraftのバージョンが1.21.1か</strong>、<strong>NeoForgeが1.21.1向けか</strong>をまず確認。ForgeやFabricでは動きません。</li>
     <li>Modが一覧に出ない → jarが <kbd>mods</kbd> フォルダ直下にあるか（zipのままや別フォルダはNG）を確認。</li>
-    <li>「Sata Coreがありません」と言われる → Sata Coreのjarを入れ忘れています。</li>
+    <li>以前の版（v1.x・6本構成）のSATA系jarが残っていると、名前がぶつかって起動しません → <kbd>mods</kbd> フォルダから古いjar（名前が <code>benricore</code>・<code>benrisuite</code>・<code>satastream</code>・<code>satarewind</code> などで始まる <code>-1.0.0.jar</code>）をすべて消してから、新しいjarを入れてください。</li>
     <li>そのほかは <a href="faq.html">FAQ</a> にまとめています。</li>
   </ul>
 
   <h2>次に読む</h2>
   <p>
-    導入できたら、まずは主役の
-    <a href="mods/toolbox.html">サタのべんり道具箱（機能とキー操作）</a>へ。
-    シリーズ全体は<a href="index.html#mods">Mod一覧</a>からどうぞ。
+    導入できたら、まずは
+    <a href="mods/benri.html">SATA 便利（機能とキー操作）</a>へ。
+    3本の一覧は<a href="index.html#mods">Mod一覧</a>からどうぞ。
   </p>
 
   <!-- ============================================================
@@ -126,7 +134,7 @@
 
 <footer class="site-foot">
   <div class="wrap">
-    <p class="statement">遊ぶ時間は、ぜんぶ<span class="glow">遊び</span>に使おう。</p>
+    <p class="statement">遊ぶ時間は、ぜんぶ<span class="em">遊び</span>に使おう。</p>
     <div class="foot-links">
       <a href="index.html">トップ</a>
       <a href="guide.html">導入ガイド</a>

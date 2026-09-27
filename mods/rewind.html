@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>サタのまきもどし（Sata Rewind）— 時間巻き戻し4モジュール | SATA SERIES</title>
-<meta name="description" content="Hキーで数秒前へ巻き戻し。逆再生アニメーション・死亡時自動巻き戻し（絶対死なない世界）。Minecraft 1.21.1（NeoForge）向け時間巻き戻しMod 4モジュールの機能と既定設定を解説。">
+<title>SATA Rewind（まきもどし）— 時間巻き戻し4モジュール | SATA SERIES</title>
+<meta name="description" content="Hキーで数秒前へ。逆再生アニメーションで時間を巻き戻すMinecraft 1.21.1（NeoForge）Mod。死亡時の自動巻き戻し（任意）、戻るもの・戻らないもの、マルチプレイでの扱いを解説。">
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <link rel="stylesheet" href="../css/site.css">
 <link rel="canonical" href="https://sata-series.sata-app.workers.dev/mods/rewind">
 <meta property="og:url" content="https://sata-series.sata-app.workers.dev/mods/rewind">
 <meta property="og:type" content="article">
-<meta property="og:title" content="サタのまきもどし — 時間巻き戻し4モジュール">
-<meta property="og:description" content="Hキーで数秒前へ逆再生巻き戻し。死亡キャンセルも。Minecraft 1.21.1 / NeoForge対応。">
+<meta property="og:title" content="SATA Rewind（まきもどし）— 時間巻き戻し4モジュール">
+<meta property="og:description" content="Hキーで数秒前へ逆再生巻き戻し。死亡時の自動巻き戻し（任意）も。シングルプレイ向け。Minecraft 1.21.1 / NeoForge対応。">
 <meta property="og:image" content="https://sata-series.sata-app.workers.dev/assets/ogp.png">
 </head>
 <body>
@@ -31,29 +31,30 @@
 </header>
 
 <main id="main" class="doc wrap">
-  <p class="breadcrumb"><a href="../index.html">トップ</a> › <a href="../index.html#mods">Mod一覧</a> › サタのまきもどし</p>
+  <p class="breadcrumb"><a href="../index.html">トップ</a> › <a href="../index.html#mods">Mod一覧</a> › SATA Rewind</p>
 
   <header class="modhead">
-    <img src="../assets/icon_rewind.svg" alt="Sata Rewindのアイコン" width="400" height="400">
+    <img src="../assets/icon_rewind.png" alt="SATA Rewindのアイコン" width="400" height="400">
     <div>
-      <h1 style="margin-bottom: 0.2em;">サタのまきもどし</h1>
-      <p class="en">Sata Rewind — 時間巻き戻し4モジュール</p>
+      <h1>SATA Rewind（まきもどし）</h1>
+      <p class="en">SATA Rewind — 時間巻き戻し 4モジュール</p>
       <ul class="meta-chips">
         <li>Minecraft 1.21.1</li>
-        <li>NeoForge</li>
-        <li>前提: Sata Core</li>
+        <li>NeoForge 21.1.x</li>
+        <li>v2.0.0</li>
+        <li>前提Mod: なし（SATA Core 同梱）</li>
         <li>modid: satarewind</li>
+        <li>シングルプレイ向け</li>
         <li>MITライセンス</li>
       </ul>
     </div>
   </header>
 
   <p>
-    「あっ」と思ったその瞬間に、<kbd>H</kbd>キーで数秒前へ。
-    周囲のワールド・モブ・自分の状態を0.5秒ごとに記録し、
+    「あっ」と思ったら、<kbd>H</kbd>キーで数秒前へ。
+    自分のまわりのブロック・モブ・自分の状態を0.5秒ごとに記録しておき、
     時間が逆流する<strong>逆再生アニメーション</strong>で巻き戻すModです。
-    溶岩ダイブも、置き間違えたブロックも、なかったことにできます。
-    死んだ瞬間に死をキャンセルする「絶対死なない世界」モードも搭載（既定OFF）。
+    死んだ瞬間に死をキャンセルして数秒前へ戻る「死亡時自動巻き戻し」も選べます（既定OFF）。
     シングルプレイ向けの設計です。
   </p>
 
@@ -61,11 +62,10 @@
 
   <div class="dl-box">
     <p><strong>ダウンロード（準備中）</strong></p>
-    <p>Modrinth / CurseForge での公開準備中です。公開後、ここにダウンロードボタンを設置します。</p>
+    <p>CurseForge での公開準備中です。公開後、ここにダウンロードボタンを設置します。</p>
     <!-- [DL LINK PLACEHOLDER] 公開後に差し替え:
-         <a class="btn" href="https://modrinth.com/mod/XXXX">Modrinthでダウンロード</a>
-         <a class="btn btn--ghost" href="https://www.curseforge.com/minecraft/mc-mods/XXXX">CurseForge</a> -->
-    <p class="small">導入には前提Modの <a href="core.html">Sata Core</a> が必要です。</p>
+         <a class="btn" href="https://www.curseforge.com/minecraft/mc-mods/XXXX">CurseForgeでダウンロード</a> -->
+    <p class="small">配布ファイル: <code>sata-rewind-neoforge-1.21.1-2.0.0.jar</code>（これ1本で動きます）。</p>
   </div>
 
   <!-- ============================================================
@@ -77,62 +77,96 @@
     <li>
       <div class="mod-line"><span class="mod-name">記録エンジン（Snapshot）</span><span class="tag tag--on">既定ON</span></div>
       <p class="mod-desc">
-        周囲（既定3チャンク）のワールド・モブ・自分の状態を0.5秒ごとに記録します（既定10秒分）。
-        位置・HP・満腹度・経験値・インベントリ・壊した/置いたブロックの差分まで対象。
-        巻き戻し機能の土台なので、基本はONのままにしてください。
+        自分のまわり（既定は半径3チャンク）を0.5秒ごとに記録します（既定10秒分）。
+        対象は、自分の位置・HP・満腹度・経験値・インベントリ・エンダーチェスト、周囲のモブの位置とHP、
+        そして自分が変えたブロック。巻き戻しの土台なので、基本はONのままにしてください。
       </p>
     </li>
     <li>
-      <div class="mod-line"><span class="mod-name">手動巻き戻し（ManualRewind）</span><span class="tag tag--on">既定ON</span></div>
+      <div class="mod-line"><span class="mod-name">手動巻き戻し（ManualRewind）</span><span class="tag tag--on">既定ON</span><span class="tag tag--key"><kbd>H</kbd>で巻き戻し</span></div>
       <p class="mod-desc">
-        <kbd>H</kbd>キー（変更可）で数秒前へ巻き戻します。巻き戻す秒数・クールダウンを設定できるほか、
-        「インベントリは戻さない」＝アイテムだけ持ち帰る記憶保持モードも選べます。
+        <kbd>H</kbd>キーで数秒前（既定5秒）へ巻き戻します。連発を防ぐクールダウンは既定30秒です。
       </p>
     </li>
     <li>
       <div class="mod-line"><span class="mod-name">死亡時自動巻き戻し（DeathRewind）</span><span class="tag tag--off">既定OFF</span></div>
       <p class="mod-desc">
-        死んだ瞬間に死をキャンセルして数秒前へ戻る「絶対死なない世界」。
-        連続死ループを防ぐクールダウンつき。ゲーム性が大きく変わるため既定OFFです。
+        死んだ瞬間に死をキャンセルして数秒前（既定8秒）へ戻ります。
+        何度も死に続けるループを防ぐため、クールダウン（既定60秒）があります。ゲーム性が大きく変わるため既定はOFFです。
       </p>
     </li>
     <li>
       <div class="mod-line"><span class="mod-name">逆再生演出（RewindFx）</span><span class="tag tag--on">既定ON</span></div>
       <p class="mod-desc">
         巻き戻しを「時間が逆流するアニメーション」にします。モブが記録した経路を逆走し、
-        ブロックが新しい順に復元され、パーティクルと効果音が重なります。OFFにすると一瞬で巻き戻ります。
+        ブロックが新しい順に元へ戻り、パーティクルと効果音が重なります。OFFにすると一瞬で巻き戻ります。
       </p>
     </li>
+  </ul>
+
+  <h2>戻るもの・戻らないもの</h2>
+  <h3>戻るもの</h3>
+  <ul>
+    <li><strong>自分が</strong>壊した・置いたブロック（チェストなどは中身ごと）。自分が開いたチェストやかまどの中身（開く直前の状態）。</li>
+    <li>自分が点火したTNTや、自分を狙っていたクリーパーなどの爆発で壊れたブロック。</li>
+    <li>自分の位置・HP・満腹度・経験値・インベントリ・エンダーチェスト（「インベントリは戻さない」がOFFのとき。既定OFF）。</li>
+    <li>周囲の生きているモブの位置とHP。</li>
+    <li>巻き戻し先より後に出てきた地面のアイテムは消えます（シングルでは記録範囲内すべて、マルチでは自分が投げた物だけ）。</li>
+  </ul>
+  <h3>戻らないもの</h3>
+  <ul>
+    <li><strong>ほかのプレイヤー</strong>（位置・HP・持ち物）と、ほかのプレイヤーが変えたブロック。同じ場所をあとから他人が変えていたら、そこは戻しません。</li>
+    <li>消えた・倒されたモブの復活（戻るのは生きているモブの位置とHPだけです）。</li>
+    <li>記録範囲の外の変化と、プレイヤー以外が原因のブロック変化（ピストン・水や溶岩・火・エンダーマンなど）。</li>
+    <li>巻き戻し先の時刻よりあとに自分が置いた箱は、巻き戻すと中身ごと消えます（入れたアイテムは、巻き戻ったインベントリ側に戻っています）。</li>
   </ul>
 
   <h2>おもな設定項目</h2>
   <div class="t-scroll">
     <table class="t">
-      <tr><th>記録範囲（チャンク）／記録する秒数</th><td>記録エンジンの対象範囲と、さかのぼれる時間です。広く・長くするほどメモリを使います。</td></tr>
-      <tr><th>巻き戻す秒数／クールダウン（秒）</th><td>手動巻き戻し1回でさかのぼる時間と、連発を防ぐ待ち時間です。</td></tr>
-      <tr><th>インベントリは戻さない</th><td>ONでアイテムは巻き戻らず「記憶」を保持。OFFでアイテムも数秒前の状態に戻ります。</td></tr>
-      <tr><th>死亡時に戻る秒数／死亡巻き戻しのクールダウン</th><td>死亡時自動巻き戻しの戻り幅と再発動までの待ち時間です。</td></tr>
-      <tr><th>逆再生の長さ（tick）／パーティクル量（%）</th><td>逆再生演出のスピードと派手さを調整できます。</td></tr>
+      <tr><th>記録範囲／記録する秒数</th><td>既定 半径3チャンク（1〜5）／10秒（5〜30）。広く・長くするほどメモリを使います。</td></tr>
+      <tr><th>巻き戻す秒数／クールダウン</th><td>既定 5秒（1〜30）／30秒（5〜300）。</td></tr>
+      <tr><th>インベントリは戻さない</th><td>既定OFF（アイテムも数秒前に戻る）。ONにするとアイテムを持ったまま戻れますが、ブロックを壊して拾ってから巻き戻すとアイテムが増えます。</td></tr>
+      <tr><th>死亡時に戻る秒数／クールダウン</th><td>既定 8秒（1〜30）／60秒（10〜600）。</td></tr>
+      <tr><th>逆再生の長さ／パーティクル量</th><td>既定 40tick＝2秒（10〜80）／100%（0〜200%）。</td></tr>
     </table>
   </div>
   <p>
-    設定はすべてゲーム内の<kbd>B</kbd>キー（<a href="core.html">Sata Core</a>の統一設定画面）から変更できます。
+    設定はゲーム内の<kbd>B</kbd>キー（統一設定画面の「SATA Rewind」タブ）から変更できます。
+    設定ファイルは <code>config/satarewind-common.toml</code>。
   </p>
 
-  <h2>知っておいてほしいこと</h2>
+  <h2>マルチプレイ（サーバー・LAN公開）での扱い</h2>
   <ul>
-    <li>巻き戻るのは「記録範囲内の周囲」です。範囲外のブロック変更やレッドストーン回路の状態は対象外です。</li>
-    <li>シングルプレイ前提の設計です。マルチでも動作しますが、他プレイヤーから見ると周囲のモブやブロックが急に戻って見えます。</li>
-    <li>消滅・死亡したモブの復活はv1では対象外です（生存モブの位置とHPが戻ります）。</li>
+    <li>既定では、手動・死亡時とも<strong>OP（権限レベル2）のプレイヤーだけ</strong>が巻き戻せます。OP以外の人が<kbd>H</kbd>を押すと、権限が必要な旨が表示されます。</li>
+    <li>全員に開放する設定（<code>allowNonOpsInMultiplayer</code>）もありますが、下の「アイテムが増える条件」を理解したうえで使ってください。</li>
+    <li>LANに公開していないシングルプレイでは、いつでも巻き戻せます。設定はサーバー側のものが使われます。</li>
   </ul>
 
-  <h2>ほかのSata Mod</h2>
+  <h2>アイテムが増える条件（知っておいてほしいこと）</h2>
   <p>
-    <a href="core.html">Sata Core（前提Mod）</a> ／
-    <a href="toolbox.html">べんり道具箱</a> ／
-    <a href="battle.html">バトルサポート</a> ／
-    <a href="build.html">けんちくヘルパー</a> ／
-    <a href="stream.html">配信サポート</a>
+    シングルプレイでは「自分の世界」なので許容していますが、次の操作をしてから巻き戻すと、アイテムや経験値が増えることがあります。
+  </p>
+  <ul>
+    <li>「インベントリは戻さない」をONにしている場合の、ブロックを壊して拾ってからの巻き戻し。</li>
+    <li>右クリックで開かない収納への出し入れ（ホッパー・ドロッパー、チェスト付きトロッコ・ロバ、額縁・防具立て、村人との取引、倉庫系Modの端末など）。インベントリだけが戻り、相手側はそのままです。</li>
+    <li>地面の経験値オーブは消さないため、鉱石を掘る→巻き戻す→もう一度掘ると経験値が2回入ります。</li>
+    <li>マルチのみ: ほかの人に渡したアイテムや、爆発で落ちたアイテム（投げた人が分からないため消しません）。</li>
+  </ul>
+
+  <h2>キー操作</h2>
+  <div class="t-scroll">
+    <table class="t">
+      <tr><th><kbd>H</kbd></th><td>手動巻き戻し</td></tr>
+      <tr><th><kbd>B</kbd></th><td>統一設定画面を開く（3本共通）</td></tr>
+    </table>
+  </div>
+  <p class="small">キー割り当てはMinecraftの設定画面から変更できます。</p>
+
+  <h2>ほかのSATA Mod</h2>
+  <p>
+    <a href="benri.html">SATA 便利</a> ／
+    <a href="hud.html">SATA 配信HUD</a>
   </p>
 
   <!-- ============================================================
@@ -142,7 +176,7 @@
 
 <footer class="site-foot">
   <div class="wrap">
-    <p class="statement">遊ぶ時間は、ぜんぶ<span class="glow">遊び</span>に使おう。</p>
+    <p class="statement">遊ぶ時間は、ぜんぶ<span class="em">遊び</span>に使おう。</p>
     <div class="foot-links">
       <a href="../index.html">トップ</a>
       <a href="../guide.html">導入ガイド</a>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SATA 便利（SATA Benri）— 一括破壊・便利機能11モジュール | SATA SERIES</title>
+<meta name="description" content="一括伐採・一括採掘・一括採土に、アイテム吸引・インベントリ整理・自動松明・リーチ延長・湧きつぶしチェッカーなど。Minecraft 1.21.1（NeoForge）向け便利機能11モジュールの機能・キー操作・既定設定を解説。">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="canonical" href="https://sata-series.sata-app.workers.dev/mods/benri">
+<meta property="og:url" content="https://sata-series.sata-app.workers.dev/mods/benri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SATA 便利（SATA Benri）— 便利機能11モジュール">
+<meta property="og:description" content="一括伐採・一括採掘・一括採土ほか。土地保護Modで守られた場所は壊さない一括破壊。Minecraft 1.21.1 / NeoForge対応。">
+<meta property="og:image" content="https://sata-series.sata-app.workers.dev/assets/ogp.png">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="masthead wrap">
+  <div class="brandline">
+    <a class="brand" href="../index.html">SATA SERIES<span class="dot">.</span></a>
+    <span class="tagline">Minecraft 1.21.1 / NeoForge の便利Modシリーズ</span>
+  </div>
+  <nav aria-label="サイト内">
+    <a href="../index.html">トップ</a>
+    <a href="../guide.html">導入ガイド</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="../about.html">サイトについて</a>
+  </nav>
+</header>
+
+<main id="main" class="doc wrap">
+  <p class="breadcrumb"><a href="../index.html">トップ</a> › <a href="../index.html#mods">Mod一覧</a> › SATA 便利</p>
+
+  <header class="modhead">
+    <img src="../assets/icon_benri.png" alt="SATA 便利のアイコン" width="400" height="400">
+    <div>
+      <h1>SATA 便利</h1>
+      <p class="en">SATA Benri — 便利機能 11モジュール</p>
+      <ul class="meta-chips">
+        <li>Minecraft 1.21.1</li>
+        <li>NeoForge 21.1.x</li>
+        <li>v2.0.0</li>
+        <li>前提Mod: なし（SATA Core 同梱）</li>
+        <li>modid: benrisuite</li>
+        <li>MITライセンス</li>
+      </ul>
+    </div>
+  </header>
+
+  <p>
+    一括伐採・一括採掘・一括採土の定番3機能を中心に、
+    畑・アイテム整理・松明・建築まわりの「あると助かる」を11モジュールにまとめたModです。
+    使う機能だけONにでき、OFFのモジュールは処理が動きません。
+    ブロックの判定はタグで行うため、他Modの木・鉱石・砂などにも反応します。
+  </p>
+
+  <!-- [VIDEO EMBED PLACEHOLDER] 紹介動画をYouTubeに公開後、この位置にiframe埋め込みを挿入 -->
+
+  <div class="dl-box">
+    <p><strong>ダウンロード（準備中）</strong></p>
+    <p>CurseForge での公開準備中です。公開後、ここにダウンロードボタンを設置します。</p>
+    <!-- [DL LINK PLACEHOLDER] 公開後に差し替え:
+         <a class="btn" href="https://www.curseforge.com/minecraft/mc-mods/XXXX">CurseForgeでダウンロード</a> -->
+    <p class="small">配布ファイル: <code>sata-benri-neoforge-1.21.1-2.0.0.jar</code>（これ1本で動きます）。マルチではサーバーとクライアントの両方に入れてください。</p>
+  </div>
+
+  <!-- ============================================================
+       [AD SLOT / AdSense] Modページ・リード文直下（本文開始前）
+       ============================================================ -->
+
+  <h2>モジュール一覧（11）</h2>
+  <ul class="modules">
+    <li>
+      <div class="mod-line"><span class="mod-name">一括伐採（CutAll）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">斧で原木を壊すと木をまるごと伐採します。葉も一緒に壊すかは設定で選べます（既定は壊す）。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">一括採掘（MineAll）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">ツルハシで鉱石を壊すと、つながっている鉱脈をまとめて採掘します。既定は「最初に掘ったのと同じ鉱石だけ」連鎖します。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">一括採土（DigAll）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">シャベルで砂・土・砂利・粘土を壊すと、同じ種類のブロックを連鎖して掘ります。対象ブロックは設定ファイルで変更できます。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">葉の高速消滅（LeafDecay）</span><span class="tag tag--on">既定ON</span></div>
+      <p class="mod-desc">原木を壊したあとに残った葉が、自然に朽ちるのを待たずに数秒で消えます（ドロップはバニラと同じ）。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">自動植え直し（Replant）</span><span class="tag tag--off">既定OFF</span></div>
+      <p class="mod-desc">成熟した作物を壊すと、収穫物から種を1つ使って植え直します。スニーク中は普通に壊せます。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">右クリック収穫（Harvest）</span><span class="tag tag--off">既定OFF</span></div>
+      <p class="mod-desc">成熟した作物を右クリックすると、収穫して植え直します。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">アイテム吸引（Magnet）</span><span class="tag tag--off">既定OFF</span><span class="tag tag--key"><kbd>M</kbd>で切替</span></div>
+      <p class="mod-desc">半径内（既定8ブロック）のアイテムと経験値オーブを引き寄せます。ゲーム中に<kbd>M</kbd>キーでON/OFFできます。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">インベントリ整理（Sorter）</span><span class="tag tag--off">既定OFF</span><span class="tag tag--key"><kbd>G</kbd>で実行</span></div>
+      <p class="mod-desc"><kbd>G</kbd>キーで、メインインベントリ（ホットバー以外の27マス）をまとめて整列します。ホットバーは動かしません。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">自動松明（TorchHelper）</span><span class="tag tag--off">既定OFF</span></div>
+      <p class="mod-desc">暗い場所（既定は明るさ7未満）を歩くと、手持ちの松明を1本使って足元に置きます。置き方は手で置くのと同じ扱いなので、保護された場所には置きません。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">リーチ延長（Reach）</span><span class="tag tag--off">既定OFF</span><span class="tag tag--on">★おすすめ設定ではON</span></div>
+      <p class="mod-desc">ブロックを置ける・壊せる距離を延ばします（既定 +4ブロック・1〜16で調整）。</p>
+    </li>
+    <li>
+      <div class="mod-line"><span class="mod-name">湧きつぶしチェッカー（LightOverlay）</span><span class="tag tag--off">既定OFF</span></div>
+      <p class="mod-desc">モブが湧ける暗い地面に赤い✕を表示します（既定は半径16ブロック）。湧きつぶしの漏れ探しに。</p>
+    </li>
+  </ul>
+
+  <h2>一括破壊のしくみ</h2>
+  <p>
+    連鎖するブロックも1個ずつ、手で壊したときと同じ破壊処理を通します。
+    そのため土地保護Mod（FTB Chunks など）やスポーン保護で守られた場所は壊れません。
+    ツールの消耗・ドロップ・経験値もバニラと同じ扱いです。
+  </p>
+  <ul>
+    <li>一度に全部は壊さず、1tickあたり全プレイヤー合計64ブロック相当ずつ進めます。大きな木や鉱脈は1〜2秒ほどかけて崩れます。</li>
+    <li>読み込まれていないチャンクには広がりません。持ち替え・切断・死亡・ディメンション移動で止まります。</li>
+    <li>葉（おまけの破壊）は耐久と満腹度を消費しません。</li>
+  </ul>
+
+  <h2>一括破壊の共通設定</h2>
+  <p>
+    一括伐採・一括採掘・一括採土の3つに共通の設定です。
+    既定では「サバイバルのバランスを崩しにくい」側に倒してあります。
+  </p>
+  <div class="t-scroll">
+    <table class="t">
+      <tr><th>スニーク中のみ発動</th><td>既定ON。しゃがんで壊したときだけ一括破壊になります。誤爆防止。</td></tr>
+      <tr><th>一度に壊せる最大ブロック数</th><td>既定1024（1〜8192）。最初の1個を含みます。</td></tr>
+      <tr><th>ツール耐久を消費する</th><td>既定ON。壊したブロック数ぶん耐久が減ります。</td></tr>
+      <tr><th>ツール保護</th><td>既定ON。残り耐久1で一括破壊を止めます。耐久1のまま使い続けると壊れるので、早めに修繕してください。</td></tr>
+      <tr><th>満腹度を消費する</th><td>既定ON。バニラと同じ割合で満腹度が減ります。</td></tr>
+      <tr><th>ドロップを足元にまとめる</th><td>既定ON。ドロップ品と経験値が自分の足元に集まります。</td></tr>
+    </table>
+  </div>
+
+  <h2>キー操作まとめ</h2>
+  <div class="t-scroll">
+    <table class="t">
+      <tr><th><kbd>B</kbd></th><td>統一設定画面を開く（3本共通）</td></tr>
+      <tr><th><kbd>M</kbd></th><td>アイテム吸引のON/OFF切替</td></tr>
+      <tr><th><kbd>G</kbd></th><td>インベントリ整理を実行</td></tr>
+    </table>
+  </div>
+  <p class="small">キー割り当てはMinecraftの設定画面から変更できます。設定ファイルは <code>config/benrisuite-common.toml</code>（ゲーム内の設定画面と同期・編集は即時反映）。マルチではサーバー側の設定が使われます。</p>
+
+  <h2>既知の制限</h2>
+  <ul>
+    <li>自動植え直し・右クリック収穫は、バニラの作物ブロック系のみ対応です（ネザーウォート・カボチャやスイカの茎は対象外）。</li>
+    <li>インベントリ整理は、GUIを閉じた状態でメインインベントリのみが対象です。</li>
+    <li>一括採土の対象ブロックリストの編集は設定ファイルで行います（GUIは未対応）。</li>
+  </ul>
+
+  <h2>ほかのSATA Mod</h2>
+  <p>
+    <a href="hud.html">SATA 配信HUD</a> ／
+    <a href="rewind.html">SATA Rewind</a>
+  </p>
+
+  <!-- ============================================================
+       [AD SLOT / AdSense] Modページ・本文末尾（フッター手前）
+       ============================================================ -->
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="statement">遊ぶ時間は、ぜんぶ<span class="em">遊び</span>に使おう。</p>
+    <div class="foot-links">
+      <a href="../index.html">トップ</a>
+      <a href="../guide.html">導入ガイド</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../about.html">サイトについて</a>
+      <a href="../privacy.html">プライバシーポリシー</a>
+    </div>
+    <p class="legal">
+      © 2026 sata — SATA SERIESは個人制作のModです。<br>
+      NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.<br>
+      本サイトはMojang/Microsoftとは無関係の非公式サイトです。Minecraftは Mojang AB の商標です。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
