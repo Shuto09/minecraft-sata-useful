@@ -3,3 +3,6 @@ wrangler.jsonc
 .assetsignore
 worker/
 .wrangler/
+# Workers Builds はリポジトリ全体（.git を含む）を directory "." として読む。外さないと /.git/ が配信される（10-07 に公開中の版で確認）
+.git/
+.gitignore
