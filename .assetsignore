@@ -1,0 +1,5 @@
+# 配信しないもの（wrangler の静的配信から外す）
+wrangler.jsonc
+.assetsignore
+worker/
+.wrangler/

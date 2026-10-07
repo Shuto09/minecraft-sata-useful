@@ -1,0 +1,17 @@
+// SATA SERIES 紹介サイト（https://sata-series.sata-app.workers.dev/）の配信設定。site/ ごと配信リポ minecraft-sata-useful に写る。
+// ページだけ Worker を先に通し（表示回数を数える）、画像・CSS は今までどおり静的配信のまま。
+// worker/worker.js は sata-portfolio/worker/worker.js の写し（中身を変える時は正本を直して写す）。
+{
+  "name": "sata-series",
+  "main": "worker/worker.js",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/*", "!/assets/*", "!/css/*"]
+  },
+  // Workers Logs（リクエストごとのログ）は使わない＝ページの文「IP などを記録しない」の前提
+  "observability": { "enabled": false },
+  "analytics_engine_datasets": [{ "binding": "VIEWS", "dataset": "sata_site_views" }],
+  "vars": { "SITE": "sata-series" }
+}

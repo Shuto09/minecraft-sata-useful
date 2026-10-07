@@ -44,24 +44,20 @@
     手順自体は他のNeoForge Modでも同じなので、先に読んでおけます。
   </p>
 
-  <!-- ============================================================
-       [AD SLOT / AdSense] 導入ガイド・リード直下（手順開始前）
-       ============================================================ -->
-
-  <h2>手順（所要 約10分）</h2>
+  <h2>手順</h2>
   <ol class="steps">
     <li>
       <h3>バニラの1.21.1を一度起動しておく</h3>
       <p>
         Minecraftランチャーで、バージョン「1.21.1」を選んで一度ゲームを起動し、
-        タイトル画面まで進んだら閉じます。これで1.21.1本体のファイルが揃います。
+        タイトル画面まで進んだら閉じます（NeoForge を入れる前に、1.21.1 がふつうに起動することを確かめておくためです）。
       </p>
     </li>
     <li>
       <h3>NeoForgeのインストーラーを入手する</h3>
       <p>
         NeoForge公式サイト（<a href="https://neoforged.net/" rel="external">neoforged.net</a>）から、
-        <strong>Minecraft 1.21.1向け（21.1.x）</strong>のインストーラー（installer.jar）をダウンロードします。
+        <strong>Minecraft 1.21.1向け（21.1.235 以降）</strong>のインストーラー（installer.jar）をダウンロードします。
         バージョン選択で「1.21.1」を選ぶのを忘れずに。
       </p>
     </li>
@@ -116,7 +112,7 @@
   <ul>
     <li>クラッシュする・起動しない → <strong>Minecraftのバージョンが1.21.1か</strong>、<strong>NeoForgeが1.21.1向けか</strong>をまず確認。ForgeやFabricでは動きません。</li>
     <li>Modが一覧に出ない → jarが <kbd>mods</kbd> フォルダ直下にあるか（zipのままや別フォルダはNG）を確認。</li>
-    <li>以前の版（v1.x・6本構成）のSATA系jarが残っていると、名前がぶつかって起動しません → <kbd>mods</kbd> フォルダから古いjar（名前が <code>benricore</code>・<code>benrisuite</code>・<code>satastream</code>・<code>satarewind</code> などで始まる <code>-1.0.0.jar</code>）をすべて消してから、新しいjarを入れてください。</li>
+    <li>以前の版（v1.x・6本構成）のSATA系jar（<code>benricore</code>・<code>benrisuite</code>・<code>benribattle</code>・<code>satabuild</code>・<code>satastream</code>・<code>satarewind</code> の <code>-1.0.0.jar</code>）は、新しいjarと混ざったときの動作を確かめていません → <kbd>mods</kbd> フォルダから消してから、新しいjarを入れてください。</li>
     <li>そのほかは <a href="faq.html">FAQ</a> にまとめています。</li>
   </ul>
 
@@ -127,9 +123,6 @@
     3本の一覧は<a href="index.html#mods">Mod一覧</a>からどうぞ。
   </p>
 
-  <!-- ============================================================
-       [AD SLOT / AdSense] 導入ガイド・本文末尾（フッター手前）
-       ============================================================ -->
 </main>
 
 <footer class="site-foot">
